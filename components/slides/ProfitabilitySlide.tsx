@@ -32,8 +32,11 @@ ChartJS.register(
   ArcElement
 );
 
+// Define the chart configuration keys type
+type ChartConfigKey = 'growth' | 'profitability' | 'services' | 'dashboard';
+
 export default function ProfitabilitySlide() {
-  const [activeChart, setActiveChart] = useState('growth');
+  const [activeChart, setActiveChart] = useState<ChartConfigKey>('growth');
 
   // P&L data from reference
   const pnlData = {
@@ -87,7 +90,7 @@ export default function ProfitabilitySlide() {
   ];
 
   // Chart configurations
-  const chartConfigs = {
+  const chartConfigs: Record<ChartConfigKey, any> = {
     growth: {
       type: 'line' as const,
       data: {

@@ -30,8 +30,11 @@ ChartJS.register(
   Filler
 );
 
+// Define the chart configuration keys type
+type ChartConfigKey = 'stacked' | 'area' | 'comparison';
+
 export default function FinancialProjectionsSlide() {
-  const [activeChart, setActiveChart] = useState('stacked');
+  const [activeChart, setActiveChart] = useState<ChartConfigKey>('stacked');
 
   // Financial data from reference
   const years = ['2026', '2027', '2028', '2029', '2030'];
@@ -71,7 +74,7 @@ export default function FinancialProjectionsSlide() {
   ];
 
   // Chart configurations
-  const chartConfigs = {
+  const chartConfigs: Record<ChartConfigKey, any> = {
     stacked: {
       type: 'bar' as const,
       data: {

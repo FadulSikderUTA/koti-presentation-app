@@ -34,8 +34,11 @@ ChartJS.register(
   RadialLinearScale
 );
 
+// Define the chart configuration keys type
+type ChartConfigKey = 'allocation' | 'deployment' | 'dashboard' | 'efficiency';
+
 export default function CapitalPlanSlide() {
-  const [activeChart, setActiveChart] = useState('allocation');
+  const [activeChart, setActiveChart] = useState<ChartConfigKey>('allocation');
 
   // Capital plan data from reference
   const capitalData = {
@@ -73,7 +76,7 @@ export default function CapitalPlanSlide() {
   ];
 
   // Chart configurations
-  const chartConfigs = {
+  const chartConfigs: Record<ChartConfigKey, any> = {
     allocation: {
       type: 'doughnut' as const,
       data: {
