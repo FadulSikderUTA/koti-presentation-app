@@ -432,7 +432,7 @@ export default function BusinessSolutionsSlide() {
                 whileHover={{ scale: 1.05 }}
               >
                 <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  {React.cloneElement(solution.icon, { className: "w-4 h-4 text-white" })}
+                  {React.cloneElement(solution.icon as React.ReactElement<any>, { className: "w-4 h-4 text-white" })}
                 </div>
                 <h4 className="text-sm font-semibold mb-1">{solution.title}</h4>
                 <p className="text-xs opacity-80">{solution.description}</p>

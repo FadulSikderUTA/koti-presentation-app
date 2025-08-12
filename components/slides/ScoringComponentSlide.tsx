@@ -116,7 +116,7 @@ export default function ScoringComponentSlide({
                     <div className={`${phase.color} rounded-lg p-2 flex items-center justify-center shadow-md min-w-[40px] h-10`}>
                       <span className="text-white font-bold text-xs mr-1">{phase.number}</span>
                       <div className="text-white">
-                        {React.cloneElement(phase.icon, { size: 16 })}
+                        {React.cloneElement(phase.icon as React.ReactElement<any>, { size: 16 })}
                       </div>
                     </div>
                     
