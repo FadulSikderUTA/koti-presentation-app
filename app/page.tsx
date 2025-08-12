@@ -12,7 +12,7 @@ export default function Home() {
       id: "business-plan",
       title: "Business Plan",
       description: "Comprehensive business presentation covering market opportunity, financial projections, and strategic roadmap",
-      icon: <Presentation className="w-8 h-8" />,
+      icon: Presentation,
       href: "/business-plan",
       gradient: "from-green-600 to-emerald-500",
       status: "20 Slides Available"
@@ -21,7 +21,7 @@ export default function Home() {
       id: "technical-plan", 
       title: "Technical Architecture",
       description: "Detailed technical architecture, system design, implementation strategy, and development roadmap",
-      icon: <Code2 className="w-8 h-8" />,
+      icon: Code2,
       href: "/technical-plan",
       gradient: "from-blue-600 to-cyan-500",
       status: "Coming Soon"
@@ -30,7 +30,7 @@ export default function Home() {
       id: "credit-scoring",
       title: "Credit Scoring Framework",
       description: "Interactive visualization of Koti's 5-phase credit scoring methodology with live demonstrations",
-      icon: <BarChart3 className="w-8 h-8" />,
+      icon: BarChart3,
       href: "/credit-scoring", 
       gradient: "from-purple-600 to-indigo-500",
       status: "Interactive Demo"
@@ -97,7 +97,7 @@ export default function Home() {
                       {/* Icon */}
                       <div className="flex justify-center mb-6">
                         <div className={`p-4 rounded-2xl bg-gradient-to-br ${option.gradient} text-white shadow-xl group-hover:scale-110 transition-transform duration-300`}>
-                          {React.cloneElement(option.icon as React.ReactElement<any>, { size: 32 })}
+                          <option.icon size={32} />
                         </div>
                       </div>
 

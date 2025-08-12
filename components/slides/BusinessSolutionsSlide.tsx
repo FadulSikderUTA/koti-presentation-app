@@ -29,37 +29,37 @@ import {
 export default function BusinessSolutionsSlide() {
   const solutions = [
     {
-      icon: <TrendingUp className="w-4 h-4 text-white" />,
+      icon: TrendingUp,
       title: "Credit Hub",
       description: "Real-time monitoring"
     },
     {
-      icon: <Brain className="w-4 h-4 text-white" />,
+      icon: Brain,
       title: "Risk Intelligence",
       description: "94% ML accuracy"
     },
     {
-      icon: <BarChart3 className="w-4 h-4 text-white" />,
+      icon: BarChart3,
       title: "Analytics",
       description: "Market insights"
     },
     {
-      icon: <Wallet className="w-4 h-4 text-white" />,
+      icon: Wallet,
       title: "Money Mgmt",
       description: "BNPL & budgeting"
     },
     {
-      icon: <GraduationCap className="w-4 h-4 text-white" />,
+      icon: GraduationCap,
       title: "Education",
       description: "Financial literacy"
     },
     {
-      icon: <Code2 className="w-4 h-4 text-white" />,
+      icon: Code2,
       title: "Developer API",
       description: "Easy integration"
     },
     {
-      icon: <ShieldCheck className="w-4 h-4 text-white" />,
+      icon: ShieldCheck,
       title: "Fraud Detection",
       description: "Advanced security"
     }
@@ -432,7 +432,7 @@ export default function BusinessSolutionsSlide() {
                 whileHover={{ scale: 1.05 }}
               >
                 <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  {React.cloneElement(solution.icon as React.ReactElement<any>, { className: "w-4 h-4 text-white" })}
+                  <solution.icon className="w-4 h-4 text-white" />
                 </div>
                 <h4 className="text-sm font-semibold mb-1">{solution.title}</h4>
                 <p className="text-xs opacity-80">{solution.description}</p>

@@ -19,35 +19,35 @@ export default function ScoringComponentSlide({
     {
       number: 1,
       title: "Business Objectives",
-      icon: <Users size={20} />,
+      icon: Users,
       description: "Establish goals aligned with Bangladesh Bank regulations",
       color: "bg-blue-500"
     },
     {
       number: 2,
       title: "Target Definition",
-      icon: <AlertCircle size={20} />,
+      icon: AlertCircle,
       description: "Define default criteria and performance windows",
       color: "bg-purple-500"
     },
     {
       number: 3,
       title: "Data Collection",
-      icon: <Database size={20} />,
+      icon: Database,
       description: "Gather traditional and alternative data sources",
       color: "bg-green-500"
     },
     {
       number: 4,
       title: "Model Development", 
-      icon: <Brain size={20} />,
+      icon: Brain,
       description: "Build separate models for thick-file and thin-file",
       color: "bg-orange-500"
     },
     {
       number: 5,
       title: "Implementation",
-      icon: <LineChart size={20} />,
+      icon: LineChart,
       description: "Deploy with continuous monitoring and governance",
       color: "bg-red-500"
     }
@@ -116,7 +116,7 @@ export default function ScoringComponentSlide({
                     <div className={`${phase.color} rounded-lg p-2 flex items-center justify-center shadow-md min-w-[40px] h-10`}>
                       <span className="text-white font-bold text-xs mr-1">{phase.number}</span>
                       <div className="text-white">
-                        {React.cloneElement(phase.icon as React.ReactElement<any>, { size: 16 })}
+                        <phase.icon size={16} />
                       </div>
                     </div>
                     
