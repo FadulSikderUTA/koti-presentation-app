@@ -120,6 +120,7 @@ export default function CapitalPlanSlide() {
         }
       },
       plugins: [{
+        id: 'customCenterText',
         beforeDraw: function(chart: any) {
           const width = chart.width;
           const height = chart.height;
