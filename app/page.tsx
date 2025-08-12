@@ -97,7 +97,7 @@ export default function Home() {
                       {/* Icon */}
                       <div className="flex justify-center mb-6">
                         <div className={`p-4 rounded-2xl bg-gradient-to-br ${option.gradient} text-white shadow-xl group-hover:scale-110 transition-transform duration-300`}>
-                          {React.cloneElement(option.icon as React.ReactElement, { size: 32 })}
+                          {React.cloneElement(option.icon as React.ReactElement<any>, { size: 32 })}
                         </div>
                       </div>
 
