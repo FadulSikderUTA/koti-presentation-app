@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.625rem;
+  
+  /* Light mode colors - Updated with Credit Scoring blue-teal scheme */
+  --background: 210 33% 98%; /* #F8F9FA */
+  --foreground: 210 11% 15%; /* #212529 */
+  --primary: 216 98% 52%; /* #0D6EFD - Blue */
+  --primary-foreground: 0 0% 100%; /* White */
+  --secondary: 162 61% 46%; /* #20C997 - Teal */
+  --secondary-foreground: 0 0% 100%; /* White */
+  --muted: 210 14% 97%; /* Lighter background */
+  --muted-foreground: 215 14% 47%; /* #6C757D */
+  --accent: 216 98% 97%; /* Very light primary */
+  --accent-foreground: 216 98% 52%; /* Primary color */
+  --border: 214 16% 87%; /* #DEE2E6 */
+  --card: 0 0% 100%; /* White */
+  --card-foreground: 210 11% 15%; /* #212529 */
+  
+  /* Presentation colors - Green gradient theme from Yeeld */
+  --presentation-green: #5daa80;
+  --presentation-green-light: #7ec29f;
+  --presentation-green-dark: #4a8866;
+  
+  /* Credit Scoring Methodology colors - HSL format for proper Tailwind integration */
+  --credit-scoring-primary: 216 98% 52%; /* #0D6EFD */
+  --credit-scoring-secondary: 162 61% 46%; /* #20C997 */
+  --credit-scoring-bg-light: 210 33% 98%; /* #F8F9FA */
+  --credit-scoring-bg-card: 0 0% 100%; /* #FFFFFF */
+  --credit-scoring-text-primary: 210 11% 15%; /* #212529 */
+  --credit-scoring-text-secondary: 215 14% 47%; /* #6C757D */
+  --credit-scoring-border: 214 16% 87%; /* #DEE2E6 */
+  
+  /* Credit Scoring status colors - HSL format */
+  --status-excellent: 152 61% 33%; /* #198754 */
+  --status-very-good: 134 61% 41%; /* #28A745 */
+  --status-good: 187 100% 42%; /* #0DCAF0 */
+  --status-fair: 45 100% 51%; /* #FFC107 */
+  --status-poor: 354 70% 54%; /* #DC3545 */
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Scroll-snap presentation styles */
+.snap-y {
+  scroll-snap-type: y mandatory;
+}
+
+.snap-mandatory {
+  scroll-snap-type: y mandatory;
+}
+
+.snap-start {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+body {
+  @apply bg-background text-foreground;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Presentation specific styles */
+.presentation-gradient {
+  background: linear-gradient(135deg, var(--presentation-green-dark) 0%, var(--presentation-green) 50%, var(--presentation-green-light) 100%);
+}
+
+.presentation-slide {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  page-break-after: always;
+  page-break-inside: avoid;
+  box-sizing: border-box;
+}
+
+.presentation-slide:last-child {
+  page-break-after: auto;
+}
+
+/* For PDF export - A4 aspect ratio */
+.pdf-container {
+  width: 100%;
+  max-width: 1024px;
+  height: 100%;
+  max-height: 768px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  html, body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Lock slide canvas to a consistent size for PDF */
+  .presentation-slide {
+    page-break-after: always;
+    page-break-inside: avoid;
+    width: 1024px;
+    height: 768px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .presentation-slide:last-child {
+    page-break-after: auto;
+  }
+
+  .pdf-container {
+    width: 1024px;
+    height: 768px;
+    max-width: 1024px;
+    max-height: 768px;
+    margin: 0 auto;
+  }
+
+  /* Hide UI elements during print */
+  button {
+    display: none !important;
+  }
+
+  /* Remove animations/transitions that can freeze mid-frame */
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Credit Scoring Methodology Scoped Styles */
+.credit-scoring-container {
+  font-family: "Inter", sans-serif;
+}
