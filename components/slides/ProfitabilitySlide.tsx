@@ -112,7 +112,7 @@ export default function ProfitabilitySlide() {
           title: {
             display: true,
             text: 'Revenue Growth: 50M to 850M BDT (1,600% Growth)',
-            font: { size: 12, weight: 'bold' },
+            font: { size: 12, weight: 'bold' as const },
             color: '#2c3e50',
             padding: { top: 5, bottom: 10 }
           },
@@ -183,7 +183,7 @@ export default function ProfitabilitySlide() {
           title: {
             display: true,
             text: 'Revenue, Costs & Profitability Trajectory',
-            font: { size: 12, weight: 'bold' },
+            font: { size: 12, weight: 'bold' as const },
             color: '#2c3e50',
             padding: { top: 5, bottom: 10 }
           },
@@ -261,7 +261,7 @@ export default function ProfitabilitySlide() {
           title: {
             display: true,
             text: 'Service Charges & Revenue Breakdown',
-            font: { size: 12, weight: 'bold' },
+            font: { size: 12, weight: 'bold' as const },
             color: '#2c3e50',
             padding: { top: 5, bottom: 10 }
           },
@@ -341,7 +341,7 @@ export default function ProfitabilitySlide() {
           title: {
             display: true,
             text: 'Revenue Dashboard: Customer Segments & MRR Growth',
-            font: { size: 12, weight: 'bold' },
+            font: { size: 12, weight: 'bold' as const },
             color: '#2c3e50',
             padding: { top: 5, bottom: 10 }
           },

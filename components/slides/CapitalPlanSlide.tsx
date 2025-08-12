@@ -93,7 +93,7 @@ export default function CapitalPlanSlide() {
           title: {
             display: true,
             text: 'Strategic Capital Allocation',
-            font: { size: 12, weight: 'bold' },
+            font: { size: 12, weight: 'bold' as const },
             color: '#2c3e50',
             padding: { top: 5, bottom: 10 }
           },
@@ -168,7 +168,7 @@ export default function CapitalPlanSlide() {
           title: {
             display: true,
             text: 'Capital Deployment Flow',
-            font: { size: 12, weight: 'bold' },
+            font: { size: 12, weight: 'bold' as const },
             color: '#2c3e50',
             padding: { top: 5, bottom: 10 }
           },
@@ -217,7 +217,7 @@ export default function CapitalPlanSlide() {
           title: {
             display: true,
             text: 'Investment Categories Overview',
-            font: { size: 12, weight: 'bold' },
+            font: { size: 12, weight: 'bold' as const },
             color: '#2c3e50',
             padding: { top: 5, bottom: 10 }
           },
@@ -269,7 +269,7 @@ export default function CapitalPlanSlide() {
           title: {
             display: true,
             text: 'Investment Efficiency Analysis',
-            font: { size: 12, weight: 'bold' },
+            font: { size: 12, weight: 'bold' as const },
             color: '#2c3e50',
             padding: { top: 5, bottom: 10 }
           },

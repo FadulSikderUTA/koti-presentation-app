@@ -121,7 +121,7 @@ export default function FinancialProjectionsSlide() {
           title: {
             display: true,
             text: 'Balance Sheet: Assets = Liabilities + Equity',
-            font: { size: 12, weight: 'bold' },
+            font: { size: 12, weight: 'bold' as const },
             color: '#2c3e50',
             padding: { top: 5, bottom: 10 }
           },
@@ -200,7 +200,7 @@ export default function FinancialProjectionsSlide() {
           title: {
             display: true,
             text: 'Financial Growth Trends Over 5 Years',
-            font: { size: 12, weight: 'bold' },
+            font: { size: 12, weight: 'bold' as const },
             color: '#2c3e50',
             padding: { top: 5, bottom: 10 }
           },
@@ -272,7 +272,7 @@ export default function FinancialProjectionsSlide() {
           title: {
             display: true,
             text: 'Balance Sheet Equation: Assets = Liabilities + Equity',
-            font: { size: 12, weight: 'bold' },
+            font: { size: 12, weight: 'bold' as const },
             color: '#2c3e50',
             padding: { top: 5, bottom: 10 }
           },
