@@ -301,7 +301,7 @@ export default function CapitalPlanSlide() {
     }
   };
 
-  const chartButtons = [
+  const chartButtons: Array<{ key: ChartConfigKey; label: string; icon: React.ReactNode }> = [
     { key: 'allocation', label: 'Strategic Allocation', icon: <PieChart className="w-4 h-4" /> },
     { key: 'deployment', label: 'Deployment Flow', icon: <BarChart3 className="w-4 h-4" /> },
     { key: 'dashboard', label: 'Category Overview', icon: <Grid3x3 className="w-4 h-4" /> },

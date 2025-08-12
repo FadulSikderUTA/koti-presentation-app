@@ -314,7 +314,7 @@ export default function FinancialProjectionsSlide() {
     }
   };
 
-  const chartButtons = [
+  const chartButtons: Array<{ key: ChartConfigKey; label: string; icon: React.ReactNode }> = [
     { key: 'stacked', label: 'Stacked View', icon: <BarChart3 className="w-4 h-4" /> },
     { key: 'area', label: 'Trend Analysis', icon: <LineChart className="w-4 h-4" /> },
     { key: 'comparison', label: 'Assets vs L+E', icon: <GitBranch className="w-4 h-4" /> }

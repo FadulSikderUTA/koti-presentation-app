@@ -389,7 +389,7 @@ export default function ProfitabilitySlide() {
     }
   };
 
-  const chartButtons = [
+  const chartButtons: Array<{ key: ChartConfigKey; label: string; icon: React.ReactNode }> = [
     { key: 'growth', label: 'Revenue Growth', icon: <TrendingUp className="w-4 h-4" /> },
     { key: 'profitability', label: 'P&L Analysis', icon: <BarChart3 className="w-4 h-4" /> },
     { key: 'services', label: 'Service Charges', icon: <Receipt className="w-4 h-4" /> },
