@@ -53,7 +53,7 @@ export default function DataCoverageSlide() {
             >
               <div className="h-full w-full relative">
                 <Image
-                  src="/References/Screenshots/Data flow.png"
+                  src="/data-flow.png"
                   alt="Comprehensive Data Flow Architecture Diagram"
                   fill
                   className="object-contain rounded-lg"

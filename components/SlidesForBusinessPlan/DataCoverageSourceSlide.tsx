@@ -53,7 +53,7 @@ export default function DataCoverageSourceSlide() {
             >
               <div className="h-full w-full relative">
                 <Image
-                  src="/References/Screenshots/Data source.png"
+                  src="/data-source.png"
                   alt="Data Source Architecture & Consumer Ecosystem"
                   fill
                   className="object-contain rounded-lg"
