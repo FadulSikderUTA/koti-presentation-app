@@ -2,26 +2,29 @@
 
 import EnhancedPresentationContainer from "@/components/EnhancedPresentationContainer";
 import ProtectedRoute from "@/components/ProtectedRoute";
-import TitleSlide from "@/components/slides/TitleSlide";
-import MissionStatementSlide from "@/components/slides/MissionStatementSlide";
-import ProblemStatementPuzzleSlide from "@/components/slides/ProblemStatementPuzzleSlide";
-import MarketDataSlide from "@/components/slides/MarketDataSlide";
-import OurSolutionSlide from "@/components/slides/OurSolutionSlide";
-import BusinessSolutionsSlide from "@/components/slides/BusinessSolutionsSlide";
-import ValuePropositionSlide from "@/components/slides/ValuePropositionSlide";
-import RevenueModelSlide from "@/components/slides/RevenueModelSlide";
-import MarketOpportunitySlide from "@/components/slides/MarketOpportunitySlide";
-import CoreCustomerProfilesSlide from "@/components/slides/CoreCustomerProfilesSlide";
-import GoToMarketStrategySlide from "@/components/slides/GoToMarketStrategySlide";
-import TimelineSlide from "@/components/slides/TimelineSlide";
-import FinancialProjectionsSlide from "@/components/slides/FinancialProjectionsSlide";
-import CapitalPlanSlide from "@/components/slides/CapitalPlanSlide";
-import ProfitabilitySlide from "@/components/slides/ProfitabilitySlide";
-import TractionSlide from "@/components/slides/TractionSlide";
-import CompetitiveAnalysisSlide from "@/components/slides/CompetitiveAnalysisSlide";
-import TeamSlide from "@/components/slides/TeamSlide";
-import ScoringComponentSlide from "@/components/slides/ScoringComponentSlide";
-import ContactSlide from "@/components/slides/ContactSlide";
+import TitleSlide from "@/components/SlidesForBusinessPlan/TitleSlide";
+import MissionStatementSlide from "@/components/SlidesForBusinessPlan/MissionStatementSlide";
+import ProblemStatementPuzzleSlide from "@/components/SlidesForBusinessPlan/ProblemStatementPuzzleSlide";
+import MarketDataSlide from "@/components/SlidesForBusinessPlan/MarketDataSlide";
+import OurSolutionSlide from "@/components/SlidesForBusinessPlan/OurSolutionSlide";
+import BusinessSolutionsSlide from "@/components/SlidesForBusinessPlan/BusinessSolutionsSlide";
+import ValuePropositionSlide from "@/components/SlidesForBusinessPlan/ValuePropositionSlide";
+import RevenueModelSlide from "@/components/SlidesForBusinessPlan/RevenueModelSlide";
+import MarketOpportunitySlide from "@/components/SlidesForBusinessPlan/MarketOpportunitySlide";
+import TargetCustomerProfilesSlide from "@/components/SlidesForBusinessPlan/TargetCustomerProfilesSlide";
+import GoToMarketStrategySlide from "@/components/SlidesForBusinessPlan/GoToMarketStrategySlide";
+import TimelineSlide from "@/components/SlidesForBusinessPlan/TimelineSlide";
+import ComplianceSlide from "@/components/SlidesForBusinessPlan/ComplianceSlide";
+import DataCoverageSlide from "@/components/SlidesForBusinessPlan/DataCoverageSlide";
+import DataCoverageSourceSlide from "@/components/SlidesForBusinessPlan/DataCoverageSourceSlide";
+import FinancialProjectionsSlide from "@/components/SlidesForBusinessPlan/FinancialProjectionsSlide";
+import CapitalPlanSlide from "@/components/SlidesForBusinessPlan/CapitalPlanSlide";
+import ProfitabilitySlide from "@/components/SlidesForBusinessPlan/ProfitabilitySlide";
+import ServiceChargesSlide from "@/components/SlidesForBusinessPlan/ServiceChargesSlide";
+import CompetitiveAnalysisSlide from "@/components/SlidesForBusinessPlan/CompetitiveAnalysisSlide";
+import TeamSlide from "@/components/SlidesForBusinessPlan/TeamSlide";
+import ScoringComponentSlide from "@/components/SlidesForBusinessPlan/ScoringComponentSlide";
+import ContactSlide from "@/components/SlidesForBusinessPlan/ContactSlide";
 
 export default function BusinessPlanPresentation() {
   // Sample team data - you can replace with actual data
@@ -55,32 +58,32 @@ export default function BusinessPlanPresentation() {
         date="08/11"
       />
       
-      {/* Slide 4 - Market Data */}
-      <MarketDataSlide 
-        version="V1"
-        date="08/11"
-      />
-      
-      {/* Slide 5 - Our Solution */}
+      {/* Slide 4 - Our Solution */}
       <OurSolutionSlide 
         version="V1"
         date="08/11"
       />
       
-      {/* Slide 6 - Business Solutions */}
+      {/* Slide 5 - Business Solutions */}
       <BusinessSolutionsSlide />
       
-      {/* Slide 7 - Value Proposition */}
+      {/* Slide 6 - Value Proposition */}
       <ValuePropositionSlide />
       
-      {/* Slide 8 - Revenue Model */}
+      {/* Slide 7 - Revenue Model */}
       <RevenueModelSlide />
+      
+      {/* Slide 8 - Market Data */}
+      <MarketDataSlide 
+        version="V1"
+        date="08/11"
+      />
       
       {/* Slide 9 - Market Opportunity */}
       <MarketOpportunitySlide />
       
-      {/* Slide 10 - Core Customer Profiles */}
-      <CoreCustomerProfilesSlide />
+      {/* Slide 10 - Target Customer Profiles */}
+      <TargetCustomerProfilesSlide />
       
       {/* Slide 11 - Go-to-Market Strategy */}
       <GoToMarketStrategySlide />
@@ -88,28 +91,37 @@ export default function BusinessPlanPresentation() {
       {/* Slide 12 - Timeline */}
       <TimelineSlide />
       
-      {/* Slide 13 - Financial Projections */}
+      {/* Slide 13 - Compliance & Complaints Policy */}
+      <ComplianceSlide />
+      
+      {/* Slide 14 - Data Coverage */}
+      <DataCoverageSlide />
+      
+      {/* Slide 15 - Data Coverage (Data Source) */}
+      <DataCoverageSourceSlide />
+      
+      {/* Slide 16 - Financial Projections */}
       <FinancialProjectionsSlide />
       
-      {/* Slide 14 - Capital Plan */}
+      {/* Slide 17 - Capital Plan */}
       <CapitalPlanSlide />
       
-      {/* Slide 15 - Revenue & Profitability Model */}
+      {/* Slide 18 - Revenue & Profitability Model */}
       <ProfitabilitySlide />
       
-      {/* Slide 16 - Scoring Component */}
+      {/* Slide 19 - Service Charges */}
+      <ServiceChargesSlide />
+      
+      {/* Slide 20 - Scoring Component */}
       <ScoringComponentSlide />
       
-      {/* Slide 17 - Traction */}
-      <TractionSlide />
-      
-      {/* Slide 18 - Competitive Analysis */}
+      {/* Slide 21 - Competitive Analysis */}
       <CompetitiveAnalysisSlide />
       
-      {/* Slide 19 - Team */}
+      {/* Slide 22 - Team */}
       <TeamSlide />
       
-      {/* Slide 20 - Contact Information */}
+      {/* Slide 23 - Contact Information */}
       <ContactSlide />
       </EnhancedPresentationContainer>
     </ProtectedRoute>

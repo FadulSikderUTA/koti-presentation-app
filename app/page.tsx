@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ChevronRight, Presentation, Code2, BarChart3 } from "lucide-react";
+import { ChevronRight, Presentation, Code2, BarChart3, Rocket } from "lucide-react";
 import Link from "next/link";
 import ProtectedRoute from "@/components/ProtectedRoute";
 
@@ -15,7 +15,7 @@ export default function Home() {
       icon: Presentation,
       href: "/business-plan",
       gradient: "from-green-600 to-emerald-500",
-      status: "20 Slides Available"
+      status: "23 Slides Available"
     },
     {
       id: "technical-plan", 
@@ -34,6 +34,15 @@ export default function Home() {
       href: "/credit-scoring", 
       gradient: "from-purple-600 to-indigo-500",
       status: "Interactive Demo"
+    },
+    {
+      id: "investor-pitch",
+      title: "Investor Pitch",
+      description: "Investor-focused presentation with key business metrics, financial projections, and growth potential",
+      icon: Rocket,
+      href: "/investor-pitch",
+      gradient: "from-orange-600 to-red-500",
+      status: "20 Slides Available"
     }
   ];
 
@@ -69,8 +78,8 @@ export default function Home() {
         </div>
 
         {/* Navigation Cards */}
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {navigationOptions.map((option, index) => (
               <motion.div
                 key={option.id}
