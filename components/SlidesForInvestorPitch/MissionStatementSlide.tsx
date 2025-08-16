@@ -1,6 +1,7 @@
 "use client";
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { getImagePath } from "@/lib/image-utils";
 
 interface MissionStatementSlideProps {
   version?: string;
@@ -21,12 +22,12 @@ export default function MissionStatementSlide({
     {
       name: "Barrister Md Anisuzz Aman",
       title: "Founder & Director",
-      image: "/team/anis.jpeg"
+      image: getImagePath("/team/Anis.jpeg")
     },
     {
       name: "Fadul Sikder", 
       title: "Co-Founder & DCTO",
-      image: "/team/fadul.png"
+      image: getImagePath("/team/fadul.png")
     }
   ];
 
