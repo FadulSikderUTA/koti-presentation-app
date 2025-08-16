@@ -247,7 +247,7 @@ const ScoreCalculation: React.FC<ScoreCalculationProps> = ({
           <div className="bg-gray-50 p-4 rounded-lg border mb-3">
             <div className="flex items-center justify-between mb-3">
               <h4 className="font-medium text-blue-800">
-                Kooti {borrowerType === 'thick-file' ? 'Pro' : 'New'} Score
+                Koti {borrowerType === 'thick-file' ? 'Pro' : 'New'} Score
               </h4>
               {isCalibrating && (
                 <div className="text-xs bg-yellow-100 px-2 py-1 rounded border border-yellow-300">

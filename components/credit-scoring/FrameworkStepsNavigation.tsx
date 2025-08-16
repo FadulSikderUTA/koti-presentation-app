@@ -24,7 +24,7 @@ const steps = [
     title: "Model Development & Validation",
     icon: <Brain size={20} />,
     description: "Build, validate models and develop scorecards with transparent points allocation",
-    details: "Logistic regression models are developed separately for Kooti Pro Score (thick-file) and Kooti New Score (thin-file) with comprehensive validation frameworks."
+    details: "Logistic regression models are developed separately for Koti Pro Score (thick-file) and Koti New Score (thin-file) with comprehensive validation frameworks."
   },
   {
     title: "Implementation, Monitoring & Governance",

@@ -221,7 +221,7 @@ const ImplementationMonitoring: React.FC<ImplementationMonitoringProps> = ({
           <ul className="list-disc pl-5 text-sm space-y-1 text-brand-text-secondary">
             <li>Real-time API for instant loan decisions</li>
             <li>Batch processing for portfolio reviews</li>
-            <li>Standardized Kooti scorecard output (300-850)</li>
+            <li>Standardized Koti scorecard output (300-850)</li>
             <li>Clear reason codes for score factors</li>
           </ul>
         </div>
@@ -281,7 +281,7 @@ const ImplementationMonitoring: React.FC<ImplementationMonitoringProps> = ({
             <div className="bg-brand-bg-light p-4 rounded-lg border border-brand-border mb-3">
               <div className="flex items-center justify-between mb-3">
                 <h4 className="font-medium text-brand-primary">
-                  Kooti {borrowerType === 'thick-file' ? 'Pro' : 'New'} Score
+                  Koti {borrowerType === 'thick-file' ? 'Pro' : 'New'} Score
                 </h4>
               </div>
               
@@ -354,7 +354,7 @@ const ImplementationMonitoring: React.FC<ImplementationMonitoringProps> = ({
       {/* Additional section for implementation details specific to borrower type */}
       <div className="mt-6 bg-brand-bg-light p-4 rounded-lg border border-brand-border">
         <h4 className="font-medium mb-3 text-brand-text-primary">
-          {borrowerType === 'thick-file' ? 'Kooti Pro Score Implementation' : 'Kooti New Score Implementation'}
+          {borrowerType === 'thick-file' ? 'Koti Pro Score Implementation' : 'Koti New Score Implementation'}
         </h4>
         
         {borrowerType === 'thick-file' ? (

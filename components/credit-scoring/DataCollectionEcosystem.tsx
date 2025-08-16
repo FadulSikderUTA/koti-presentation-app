@@ -117,21 +117,21 @@ const DataCollectionEcosystem: React.FC<DataCollectionEcosystemProps> = ({
           </div>
         </div>
         
-        {/* Kooti Scoring Models - Right column */}
+        {/* Koti Scoring Models - Right column */}
         <div>
           <div className="bg-gradient-to-r from-blue-50 to-teal-50 p-3 rounded-lg border-2 border-blue-300 shadow-md h-full">
-            <h5 className="text-center font-medium text-blue-800 mb-3">Kooti Scoring Models</h5>
+            <h5 className="text-center font-medium text-blue-800 mb-3">Koti Scoring Models</h5>
             
             <div className="space-y-3">
               <div className="bg-blue-600 p-2 rounded-lg text-white shadow-sm">
-                <div className="font-bold text-center text-sm">Kooti Pro Score</div>
+                <div className="font-bold text-center text-sm">Koti Pro Score</div>
                 <div className="text-xs mt-1 opacity-90">
                   For thick-file borrowers with traditional credit data
                 </div>
               </div>
               
               <div className="bg-teal-600 p-2 rounded-lg text-white shadow-sm">
-                <div className="font-bold text-center text-sm">Kooti New Score</div>
+                <div className="font-bold text-center text-sm">Koti New Score</div>
                 <div className="text-xs mt-1 opacity-90">
                   For thin-file borrowers with alternative data
                 </div>

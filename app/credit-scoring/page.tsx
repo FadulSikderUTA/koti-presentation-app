@@ -13,7 +13,7 @@ import DataCollectionEcosystem from "../../components/credit-scoring/DataCollect
 import ProtectedRoute from "@/components/ProtectedRoute";
 import Link from 'next/link';
 
-const KootiCSMVisualization = () => {
+const KotiCSMVisualization = () => {
   // State for input data (simplified for demo)
   const [inputs, setInputs] = useState({
     loanHistory: 2,
@@ -286,7 +286,7 @@ const KootiCSMVisualization = () => {
       title: "Model Development & Validation",
       icon: <Brain size={24} />,
       description: "Build, validate models and develop scorecards with transparent points allocation",
-      details: "Logistic regression models are developed separately for Kooti Pro Score (thick-file) and Kooti New Score (thin-file) with comprehensive validation frameworks."
+      details: "Logistic regression models are developed separately for Koti Pro Score (thick-file) and Koti New Score (thin-file) with comprehensive validation frameworks."
     },
     {
       title: "Implementation, Monitoring & Governance",
@@ -387,7 +387,7 @@ const KootiCSMVisualization = () => {
           {/* Decorative accent elements */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-xl"></div>
           <div className="absolute bottom-0 left-1/4 w-32 h-32 bg-white/5 rounded-full -mb-16 blur-lg"></div>
-          <h1 className="text-2xl font-bold text-center">Kooti Credit Scoring Methodology</h1>
+          <h1 className="text-2xl font-bold text-center">Koti Credit Scoring Methodology</h1>
           <p className="text-primary-foreground/90 text-center">Interactive visualization of the 5-step credit scoring framework</p>
           <div className="mt-4">
             <FrameworkStepsNavigation activeStep={activeStep} setActiveStep={setActiveStep} />
@@ -436,7 +436,7 @@ const KootiCSMVisualization = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="border border-brand-border p-4 rounded-md bg-brand-bg-light relative"> {/* Lighter background for card */}
                         <div className="absolute top-0 right-0 bg-brand-primary text-white text-xs px-2 py-1 rounded-bl-md">
-                          Kooti Focus
+                          Koti Focus
                         </div>
                         <h4 className="font-medium text-brand-primary">General-Purpose Credit Scoring</h4> {/* Brand primary for heading */}
                         <p className="text-sm mt-2 text-brand-text-secondary">
@@ -446,7 +446,7 @@ const KootiCSMVisualization = () => {
                       <div className="border border-brand-border p-4 rounded-md bg-brand-bg-light"> {/* Lighter background for card */}
                         <h4 className="font-medium text-brand-text-primary">Application-Specific Scoring</h4> {/* Primary text for heading */}
                         <p className="text-sm mt-2 text-brand-text-secondary">
-                          Developed internally by banks/NBFIs for particular credit products. Kooti Score often serves as a baseline or input to such specialized models.
+                          Developed internally by banks/NBFIs for particular credit products. Koti Score often serves as a baseline or input to such specialized models.
                         </p>
                       </div>
                     </div>
@@ -457,7 +457,7 @@ const KootiCSMVisualization = () => {
                     <h3 className="font-semibold text-brand-text-primary mb-3">Bangladesh Credit Market Dynamics</h3>
                     <div className="p-4 border border-brand-border rounded-md bg-yellow-50"> {/* Keeping yellow for emphasis, can be changed to a brand tint */}
                       <p className="text-sm text-yellow-800"> {/* Darker yellow text for readability */}
-                        Most of Bangladesh's population lacks access to formal credit, resulting in limited or no credit history ("thin-file"). To address this challenge, Kooti employs a segmented approach that accommodates both established borrowers and those new to formal credit.
+                        Most of Bangladesh's population lacks access to formal credit, resulting in limited or no credit history ("thin-file"). To address this challenge, Koti employs a segmented approach that accommodates both established borrowers and those new to formal credit.
                       </p>
                       <div className="mt-3 flex items-center justify-center">
                         <div className="bg-red-100 rounded-md p-2 text-center w-32">
@@ -473,15 +473,15 @@ const KootiCSMVisualization = () => {
                     </div>
                   </div>
 
-                  {/* Kooti's segmented approach */}
+                  {/* Koti's segmented approach */}
                   <div className="mt-4">
-                    <h3 className="font-semibold text-brand-text-primary mb-3">Kooti Score Product Suite</h3>
+                    <h3 className="font-semibold text-brand-text-primary mb-3">Koti Score Product Suite</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                       <div className="border-2 border-brand-primary p-4 rounded-md relative bg-brand-bg-card"> {/* Brand primary border, card background */}
                         <div className="absolute -top-3 left-3 bg-brand-primary text-white text-sm px-3 py-1 rounded-md">
                           Thick-File Borrowers
                         </div>
-                        <h4 className="font-bold text-brand-primary mt-3">Kooti Pro Score</h4>
+                        <h4 className="font-bold text-brand-primary mt-3">Koti Pro Score</h4>
                         <p className="text-sm mt-2 text-brand-text-secondary">
                           For borrowers with substantial credit history (2+ years, multiple accounts). Uses traditional credit data and metrics.
                         </p>
@@ -493,7 +493,7 @@ const KootiCSMVisualization = () => {
                         <div className="absolute -top-3 left-3 bg-brand-secondary text-white text-sm px-3 py-1 rounded-md">
                           Thin-File Borrowers
                         </div>
-                        <h4 className="font-bold text-brand-secondary mt-3">Kooti New Score</h4>
+                        <h4 className="font-bold text-brand-secondary mt-3">Koti New Score</h4>
                         <p className="text-sm mt-2 text-brand-text-secondary">
                           For borrowers with limited or no formal credit history. Leverages alternative data sources and advanced analytics.
                         </p>
@@ -510,15 +510,15 @@ const KootiCSMVisualization = () => {
                         {/* Example: Using brand colors for these tags, or creating specific tag colors */}
                         <div className="bg-purple-100 text-purple-800 px-3 py-2 rounded-md text-sm flex items-center">
                           <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
-                          Kooti MFI Score
+                          Koti MFI Score
                         </div>
                         <div className="bg-green-100 text-green-800 px-3 py-2 rounded-md text-sm flex items-center">
                           <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                          Kooti Retail Score
+                          Koti Retail Score
                         </div>
                         <div className="bg-amber-100 text-amber-800 px-3 py-2 rounded-md text-sm flex items-center">
                           <div className="w-2 h-2 bg-amber-500 rounded-full mr-2"></div>
-                          Kooti SME Score
+                          Koti SME Score
                         </div>
                       </div>
                       <p className="text-xs text-brand-text-secondary mt-2 italic"> {/* Secondary text for disclaimer */}
@@ -565,7 +565,7 @@ const KootiCSMVisualization = () => {
                             <span className="font-medium text-purple-700">Vintage Analysis:</span> Performance of loan origination cohorts over time
                           </li>
                         </ul>
-                        <p className="text-xs mt-2 text-brand-text-secondary italic">Note: While these variations inform model development, the standard Kooti Score uses 12-month PD with 90+ days past due.</p>
+                        <p className="text-xs mt-2 text-brand-text-secondary italic">Note: While these variations inform model development, the standard Koti Score uses 12-month PD with 90+ days past due.</p>
                       </div>
                     </div>
                   </div>
@@ -578,7 +578,7 @@ const KootiCSMVisualization = () => {
                     <div className="mb-12">
                       <div className="flex items-center mb-2">
                         <div className="bg-blue-100 text-blue-800 px-2 py-1 rounded font-medium text-sm">
-                          Thick-File (Kooti Pro Score)
+                          Thick-File (Koti Pro Score)
                         </div>
                       </div>
                       
@@ -622,7 +622,7 @@ const KootiCSMVisualization = () => {
                     <div className="mb-6">
                       <div className="flex items-center mb-2">
                         <div className="bg-teal-100 text-teal-800 px-2 py-1 rounded font-medium text-sm">
-                          Thin-File (Kooti New Score)
+                          Thin-File (Koti New Score)
                         </div>
                       </div>
                       
@@ -715,7 +715,7 @@ const KootiCSMVisualization = () => {
                       <div className="bg-blue-50 p-4 rounded-lg border border-blue-200"> {/* Keeping light blue for TF emphasis */}
                         <div className="flex items-center mb-3">
                           <div className="bg-brand-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-2">TF</div>
-                          <h5 className="font-medium text-brand-primary">Thick-File: Kooti Pro Score</h5>
+                          <h5 className="font-medium text-brand-primary">Thick-File: Koti Pro Score</h5>
                         </div>
                         
                         <div className="space-y-3">
@@ -743,7 +743,7 @@ const KootiCSMVisualization = () => {
                       <div className="bg-teal-50 p-4 rounded-lg border border-teal-200"> {/* Keeping light teal for TN emphasis */}
                         <div className="flex items-center mb-3">
                           <div className="bg-brand-secondary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-2">TN</div>
-                          <h5 className="font-medium text-brand-secondary">Thin-File: Kooti New Score</h5>
+                          <h5 className="font-medium text-brand-secondary">Thin-File: Koti New Score</h5>
                         </div>
                         
                         <div className="space-y-3">
@@ -868,7 +868,7 @@ const KootiCSMVisualization = () => {
           <p className="flex items-center justify-center">
             <span className="font-semibold text-primary mr-1">© 2025 Koti Credit Bureau</span>
             <span className="mx-2">—</span>
-            <span>This visualization represents the Kooti Credit Scoring Methodology (CSM)</span>
+            <span>This visualization represents the Koti Credit Scoring Methodology (CSM)</span>
           </p>
         </div>
       </div>
@@ -877,4 +877,4 @@ const KootiCSMVisualization = () => {
   );
 };
 
-export default KootiCSMVisualization;
+export default KotiCSMVisualization;

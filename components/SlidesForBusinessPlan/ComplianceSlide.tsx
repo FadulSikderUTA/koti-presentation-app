@@ -94,20 +94,20 @@ export default function ComplianceSlide() {
         </motion.div>
 
         {/* Main Content */}
-        <div className="h-full flex flex-col px-7 py-15 pb-40">
-          {/* Title Section */}
+        <div className="h-full flex flex-col px-7 py-20 pb-36">
+          {/* Title Section - Compacted by 10% */}
           <motion.div
-            className="text-center mb-4"
+            className="text-center mb-3"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-3xl font-bold mb-2">COMPLIANCE & COMPLAINTS POLICY</h1>
-            <p className="text-lg opacity-90">Customer Protection & Regulatory Adherence Framework</p>
+            <h1 className="text-2xl font-bold mb-1">COMPLIANCE & COMPLAINTS POLICY</h1>
+            <p className="text-base opacity-90">Customer Protection & Regulatory Adherence Framework</p>
           </motion.div>
 
-          {/* Two Column Layout */}
-          <div className="flex-1 flex gap-5">
+          {/* Two Column Layout - Compacted spacing */}
+          <div className="flex-1 flex gap-4">
             
             {/* Left Column - Customer Access & Response */}
             <motion.div 
@@ -120,7 +120,7 @@ export default function ComplianceSlide() {
                 <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center mr-3">
                   <Phone className="w-4 h-4 text-white" />
                 </div>
-                <h2 className="text-xl font-bold">Customer Access & Response</h2>
+                <h2 className="text-lg font-bold">Customer Access & Response</h2>
               </div>
 
               <div className="space-y-3 flex-1">
@@ -132,12 +132,12 @@ export default function ComplianceSlide() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.6 + index * 0.15 }}
                   >
-                    <div className="flex items-start mb-3">
+                    <div className="flex items-start mb-2">
                       <div className="bg-green-100 p-2 rounded-lg mr-3 flex-shrink-0">
                         {channel.icon}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-bold text-gray-800 mb-2">{channel.title}</h3>
+                        <h3 className="text-sm font-bold text-gray-800 mb-1">{channel.title}</h3>
                         <p className="text-xs text-gray-600 leading-relaxed mb-2">
                           {channel.description}
                         </p>
@@ -167,7 +167,7 @@ export default function ComplianceSlide() {
                 <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3">
                   <Shield className="w-4 h-4 text-white" />
                 </div>
-                <h2 className="text-xl font-bold">Governance & Oversight</h2>
+                <h2 className="text-lg font-bold">Governance & Oversight</h2>
               </div>
 
               <div className="space-y-3 flex-1">
@@ -179,12 +179,12 @@ export default function ComplianceSlide() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.8 + index * 0.15 }}
                   >
-                    <div className="flex items-start mb-3">
+                    <div className="flex items-start mb-2">
                       <div className="bg-white/20 p-2 rounded-lg mr-3 flex-shrink-0">
                         {process.icon}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-bold text-white mb-2">{process.title}</h3>
+                        <h3 className="text-sm font-bold text-white mb-1">{process.title}</h3>
                         <p className="text-xs text-white opacity-90 leading-relaxed mb-2">
                           {process.description}
                         </p>
@@ -204,25 +204,25 @@ export default function ComplianceSlide() {
             </motion.div>
           </div>
 
-          {/* Bottom Key Metrics */}
+          {/* Bottom Key Metrics - Compacted */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
-            className="mt-5 bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/20"
+            className="mt-3 bg-white/10 backdrop-blur-sm rounded-lg p-2 border border-white/20"
           >
-            <div className="grid grid-cols-3 gap-5 text-center">
+            <div className="grid grid-cols-3 gap-3 text-center">
               <div>
-                <div className="text-2xl font-bold text-green-400">2 Days</div>
-                <div className="text-sm text-white/80">Standard Response</div>
+                <div className="text-xl font-bold text-green-400">2 Days</div>
+                <div className="text-xs text-white/80">Standard Response</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-blue-400">35 Days</div>
-                <div className="text-sm text-white/80">Maximum Resolution</div>
+                <div className="text-xl font-bold text-blue-400">35 Days</div>
+                <div className="text-xs text-white/80">Maximum Resolution</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-purple-400">100%</div>
-                <div className="text-sm text-white/80">Record Keeping</div>
+                <div className="text-xl font-bold text-purple-400">100%</div>
+                <div className="text-xs text-white/80">Record Keeping</div>
               </div>
             </div>
           </motion.div>
