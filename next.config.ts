@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  basePath: process.env.NODE_ENV === 'production' ? '/presentation-app' : '',
+  basePath: '/presentation-app',
   eslint: {
     ignoreDuringBuilds: true,
   },

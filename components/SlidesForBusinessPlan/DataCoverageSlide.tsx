@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { getImagePath } from "@/lib/image-utils";
 
 export default function DataCoverageSlide() {
   return (
@@ -53,7 +54,7 @@ export default function DataCoverageSlide() {
             >
               <div className="h-full w-full relative">
                 <Image
-                  src="/data-flow.png"
+                  src={getImagePath("/data-flow.png")}
                   alt="Comprehensive Data Flow Architecture Diagram"
                   fill
                   className="object-contain rounded-lg"

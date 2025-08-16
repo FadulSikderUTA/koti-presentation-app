@@ -3,13 +3,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { getImagePath } from "@/lib/image-utils";
 
 export default function TeamSlide() {
   const teamMembers = [
     {
       id: 1,
       name: "Anthony Wilcox",
-      photo: "/team/Tony.jpg",
+      photo: getImagePath("/team/Tony.jpg"),
       expertise: "International Banking & Strategy",
       experience: [
         "CEO of major UK banks (Danske, Lloyds International)",
@@ -21,7 +22,7 @@ export default function TeamSlide() {
     {
       id: 2,
       name: "Mizanur Rahman",
-      photo: "/team/Mizanur rahman.png",
+      photo: getImagePath("/team/mizanur-rahman.png"),
       expertise: "Banking Operations & Regulatory",
       experience: [
         "Senior Executive VP First Security Islami Bank",
@@ -33,7 +34,7 @@ export default function TeamSlide() {
     {
       id: 3,
       name: "Md Mushfiqur Rahman",
-      photo: "/team/Mushfiq.jpg", 
+      photo: getImagePath("/team/Mushfiq.jpg"), 
       expertise: "Technology & Security",
       experience: [
         "SOC and core banking technology specialist",
@@ -45,7 +46,7 @@ export default function TeamSlide() {
     {
       id: 4,
       name: "Barrister Md Anisuzz Aman",
-      photo: "/team/Anis.jpeg",
+      photo: getImagePath("/team/Anis.jpeg"),
       expertise: "Regulatory & Compliance",
       experience: [
         "FCA-approved MLRO with LLM Financial Regulation",
@@ -57,7 +58,7 @@ export default function TeamSlide() {
     {
       id: 5,
       name: "Fadul Sikder",
-      photo: "/team/fadul.png",
+      photo: getImagePath("/team/fadul.png"),
       expertise: "AI & Product Innovation", 
       experience: [
         "Computer Science Researcher",
@@ -69,7 +70,7 @@ export default function TeamSlide() {
     {
       id: 6,
       name: "Preston Brown",
-      photo: "/team/Preston.jpg",
+      photo: getImagePath("/team/Preston.jpg"),
       expertise: "Platform Technology",
       experience: [
         "CEO of Yeeld - fintech platform architect",
@@ -81,7 +82,7 @@ export default function TeamSlide() {
     {
       id: 7,
       name: "Galib Ibn Anwarul Azim",
-      photo: "/team/Galib.jpg",
+      photo: getImagePath("/team/Galib.jpg"),
       expertise: "Policy & Digital Finance",
       experience: [
         "Bangladesh Bank Assistant Director",

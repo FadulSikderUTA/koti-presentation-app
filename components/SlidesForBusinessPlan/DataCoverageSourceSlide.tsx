@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { getImagePath } from "@/lib/image-utils";
 
 export default function DataCoverageSourceSlide() {
   return (
@@ -53,7 +54,7 @@ export default function DataCoverageSourceSlide() {
             >
               <div className="h-full w-full relative">
                 <Image
-                  src="/data-source.png"
+                  src={getImagePath("/data-source.png")}
                   alt="Data Source Architecture & Consumer Ecosystem"
                   fill
                   className="object-contain rounded-lg"
