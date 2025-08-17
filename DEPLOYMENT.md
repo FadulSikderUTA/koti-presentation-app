@@ -104,7 +104,7 @@ Click **"Deploy"** and wait for the build to complete.
 13. Financial Projections
 14. Capital Plan
 15. Profitability Model
-16. **Scoring Component** (Trinity Scoring App)
+16. **Scoring Component** (Koti Scoring App)
 17. Market Traction
 18. Competitive Analysis
 19. Team Overview

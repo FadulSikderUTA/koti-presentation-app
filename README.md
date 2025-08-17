@@ -148,7 +148,7 @@ The application is a standard Next.js app and can be deployed on:
 13. Financial Projections
 14. Capital Plan
 15. Profitability Model
-16. **Scoring Component** (Trinity Scoring App)
+16. **Scoring Component** (Koti Scoring App)
 17. Market Traction
 18. Competitive Analysis
 19. Team Overview

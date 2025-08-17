@@ -87,7 +87,7 @@ export default function ScoringComponentSlide({
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-3xl font-bold mb-2">SCORING COMPONENT</h1>
-            <p className="text-lg opacity-90">Trinity Scoring App • Powering Financial Inclusion Through AI</p>
+            <p className="text-lg opacity-90">Koti Scoring App • Powering Financial Inclusion Through AI</p>
           </motion.div>
 
           {/* Main Content Grid */}

@@ -102,7 +102,7 @@ export default function ComplianceSlide() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-2xl font-bold mb-1">COMPLIANCE & COMPLAINTS POLICY</h1>
+            <h1 className="text-3xl font-bold mb-1">COMPLIANCE & COMPLAINTS POLICY</h1>
             <p className="text-base opacity-90">Customer Protection & Regulatory Adherence Framework</p>
           </motion.div>
 

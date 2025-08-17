@@ -24,7 +24,7 @@ export default function Home() {
       icon: Code2,
       href: "/technical-plan",
       gradient: "from-blue-600 to-cyan-500",
-      status: "Coming Soon"
+      status: "19 Slides Available"
     },
     {
       id: "credit-scoring",

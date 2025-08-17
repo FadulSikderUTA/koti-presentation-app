@@ -4,16 +4,17 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Users, AlertCircle, Database, Brain, LineChart, ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
 
-interface ScoringComponentSlideProps {
-  version?: string;
-  date?: string;
+interface KotiCreditScoreMethodologySlideProps {
+  slideNumber?: number;
 }
 
-export default function ScoringComponentSlide({ 
-  version = "V1", 
-  date = "08/11" 
-}: ScoringComponentSlideProps) {
+export default function KotiCreditScoreMethodologySlide({ 
+  slideNumber 
+}: KotiCreditScoreMethodologySlideProps) {
+  const dynamicSlideNumber = useSlideNumber();
+
   // Five-phase methodology data
   const phases = [
     {
@@ -86,7 +87,7 @@ export default function ScoringComponentSlide({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-3xl font-bold mb-2">SCORING COMPONENT</h1>
+            <h1 className="text-3xl font-bold mb-2">KOTI CREDIT SCORE METHODOLOGY</h1>
             <p className="text-lg opacity-90">Koti Scoring App • Powering Financial Inclusion Through AI</p>
           </motion.div>
 
@@ -142,12 +143,12 @@ export default function ScoringComponentSlide({
               >
                 <h3 className="text-sm font-bold text-white mb-3">Market Challenge & Solution</h3>
                 <div className="flex items-center justify-center space-x-4">
-                  <div className="bg-red-500/20 border border-red-400 rounded-md p-2 text-center flex-1">
-                    <p className="text-red-200 text-xs font-medium">CHALLENGE</p>
-                    <p className="text-white text-xs font-bold mt-1">Limited Credit Data</p>
+                  <div className="bg-white border-2 border-white/30 rounded-md p-2 text-center flex-1 shadow-lg">
+                    <p className="text-red-600 text-xs font-medium">CHALLENGE</p>
+                    <p className="text-gray-800 text-xs font-bold mt-1">Limited Credit Data</p>
                   </div>
                   <ArrowRight className="text-white/60" size={16} />
-                  <div className="bg-green-500/20 border border-green-400 rounded-md p-2 text-center flex-1">
+                  <div className="bg-gradient-to-r from-green-500 to-green-600 border-2 border-green-400/30 rounded-md p-2 text-center flex-1 shadow-lg">
                     <p className="text-green-200 text-xs font-medium">SOLUTION</p>
                     <p className="text-white text-xs font-bold mt-1">Segmented Approach</p>
                   </div>
@@ -232,8 +233,8 @@ export default function ScoringComponentSlide({
         >
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
-              <span>Scoring Component</span>
-              <span>16</span>
+              <span>Koti Credit Score Methodology</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>
