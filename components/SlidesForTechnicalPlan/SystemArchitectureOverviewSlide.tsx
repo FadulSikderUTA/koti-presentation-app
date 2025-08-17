@@ -48,8 +48,8 @@ export default function SystemArchitectureOverviewSlide({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-2xl font-bold">SYSTEM ARCHITECTURE OVERVIEW</h1>
-            <p className="text-sm opacity-90">Complete DC-DR Infrastructure with Security Zones</p>
+            <h1 className="text-3xl font-bold mb-2">SYSTEM ARCHITECTURE OVERVIEW</h1>
+            <p className="text-base opacity-90">Complete DC-DR Infrastructure with Security Zones</p>
           </motion.div>
 
           {/* Main Layout - 20% Content, 80% Image and Metrics */}
