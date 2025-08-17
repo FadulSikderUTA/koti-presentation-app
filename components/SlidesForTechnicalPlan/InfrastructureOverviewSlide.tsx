@@ -78,12 +78,6 @@ export default function InfrastructureOverviewSlide({
     }
   ];
 
-  const keyMetrics = [
-    { label: "CIA", value: "Confidentiality, Integrity, Availability", color: "text-blue-400" },
-    { label: "RPO", value: "<15 min", color: "text-green-400" },
-    { label: "RTO", value: "<4 hrs", color: "text-purple-400" },
-    { label: "Uptime", value: "99.9%", color: "text-orange-400" }
-  ];
 
   return (
     <div className="presentation-slide presentation-gradient">
@@ -122,7 +116,7 @@ export default function InfrastructureOverviewSlide({
           </motion.div>
 
           {/* Three Pillars Layout */}
-          <div className="flex-1 grid grid-cols-3 gap-5 mb-5">
+          <div className="flex-1 grid grid-cols-3 gap-5">
             
             {/* Pillar 1: Data Sovereignty */}
             <motion.div 
@@ -235,23 +229,6 @@ export default function InfrastructureOverviewSlide({
               </div>
             </motion.div>
           </div>
-
-          {/* Bottom Key Metrics */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20"
-          >
-            <div className="grid grid-cols-4 gap-4 text-center">
-              {keyMetrics.map((metric, index) => (
-                <div key={index}>
-                  <div className={`text-lg font-bold ${metric.color}`}>{metric.label}</div>
-                  <div className="text-xs text-white/80">{metric.value}</div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
         </div>
 
         {/* Footer - Page Title and Number */}

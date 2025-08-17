@@ -160,8 +160,8 @@ export default function SystemArchitectureOverviewSlide({
               </motion.div>
             </div>
             
-            {/* Right Side - 80% Image and Metrics */}
-            <div className="w-[80%] flex flex-col gap-2">
+            {/* Right Side - 80% Image */}
+            <div className="w-[80%] flex flex-col">
               {/* Image Container */}
               <motion.div 
                 className="flex-1 relative"
@@ -178,32 +178,6 @@ export default function SystemArchitectureOverviewSlide({
                 />
               </motion.div>
               
-              {/* Metrics Section - Below Image */}
-              <motion.div
-                className="bg-white/10 backdrop-blur-sm rounded-lg p-2 border border-white/20"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                <div className="grid grid-cols-4 gap-4 text-center">
-                  <div>
-                    <div className="text-lg font-bold text-green-400">99.9%</div>
-                    <div className="text-xs text-white/80">Uptime</div>
-                  </div>
-                  <div>
-                    <div className="text-lg font-bold text-blue-400">&lt;15m</div>
-                    <div className="text-xs text-white/80">RPO</div>
-                  </div>
-                  <div>
-                    <div className="text-lg font-bold text-purple-400">&lt;4h</div>
-                    <div className="text-xs text-white/80">RTO</div>
-                  </div>
-                  <div>
-                    <div className="text-lg font-bold text-orange-400">Active</div>
-                    <div className="text-xs text-white/80">Status</div>
-                  </div>
-                </div>
-              </motion.div>
             </div>
           </div>
         </div>

@@ -72,11 +72,6 @@ export default function ArchitecturePrinciplesSlide({
     }
   ];
 
-  const keyMetrics = [
-    { label: "RPO", value: "<15 min", color: "text-green-400" },
-    { label: "RTO", value: "<4 hrs", color: "text-blue-400" },
-    { label: "Uptime", value: "99.9%", color: "text-purple-400" }
-  ];
 
   const techSpecs = [
     { icon: <Server className="w-4 h-4 text-white" />, label: "Dedicated Secure Link" },
@@ -232,25 +227,6 @@ export default function ArchitecturePrinciplesSlide({
             </motion.div>
           </div>
 
-          {/* Bottom Key Metrics - Prominent */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="bg-white/15 backdrop-blur-sm rounded-xl p-4 border border-white/30 mt-3 shadow-lg"
-          >
-            <div className="flex justify-center items-center gap-8">
-              <div className="text-center">
-                <div className="text-base font-bold opacity-90">Recovery Metrics</div>
-              </div>
-              {keyMetrics.map((metric, index) => (
-                <div key={index} className="text-center">
-                  <div className={`text-xl font-bold ${metric.color}`}>{metric.value}</div>
-                  <div className="text-sm text-white/80 font-medium">{metric.label}</div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
         </div>
 
         {/* Footer - Page Title and Number */}
