@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactElement, cloneElement } from 'react';
+import React, { ReactElement } from 'react';
 import { SlideNumberProvider } from '@/contexts/SlideNumberContext';
 
 interface SlideWrapperProps {
@@ -11,7 +11,7 @@ interface SlideWrapperProps {
 export default function SlideWrapper({ children, slideNumber }: SlideWrapperProps) {
   return (
     <SlideNumberProvider slideNumber={slideNumber}>
-      {cloneElement(children, { slideNumber })}
+      {children}
     </SlideNumberProvider>
   );
 }
