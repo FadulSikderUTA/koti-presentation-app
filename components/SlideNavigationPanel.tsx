@@ -73,7 +73,7 @@ export default function SlideNavigationPanel({
       {/* Toggle Button - Always visible */}
       <motion.button
         onClick={onToggle}
-        className={`fixed top-6 left-52 z-[60] p-3 rounded-lg transition-all duration-300 ${
+        className={`fixed top-6 left-[400px] z-[60] p-3 rounded-lg transition-all duration-300 ${
           isOpen 
             ? 'bg-white text-gray-800 shadow-lg' 
             : 'bg-black/50 backdrop-blur-md text-white hover:bg-black/70'
@@ -102,11 +102,11 @@ export default function SlideNavigationPanel({
         {isOpen && (
           <motion.div
             ref={panelRef}
-            initial={{ x: -400, opacity: 0 }}
+            initial={{ x: -384, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -400, opacity: 0 }}
+            exit={{ x: -384, opacity: 0 }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed left-0 top-0 h-full w-80 bg-white/95 backdrop-blur-md shadow-2xl z-[55] border-r border-gray-200"
+            className="fixed left-0 top-0 h-full w-96 bg-white/95 backdrop-blur-md shadow-2xl z-[55] border-r border-gray-200"
           >
             {/* Panel Header */}
             <div className="p-6 border-b border-gray-200">

@@ -48,12 +48,12 @@ export default function CapitalPlanSlide({ slideNumber }: CapitalPlanSlideProps)
   const dynamicSlideNumber = useSlideNumber();
   useSlideTitle("Capital Plan");
 
-  // Capital plan data from Excel (in Millions BDT)
+  // Capital plan data from Excel (in Crores BDT)
   const capitalData = {
     categories: ['IT Infrastructure', 'Office Decoration', 'Rent Advance', 'Employee Laptops', 'Office Equipment'],
-    amounts: [77.84, 7.50, 3.24, 2.42, 1.90],
+    amounts: [7.784, 0.75, 0.324, 0.242, 0.19],
     colors: ['#3498db', '#e74c3c', '#f39c12', '#27ae60', '#9b59b6'],
-    total: 92.90
+    total: 9.29
   };
 
   const percentages = capitalData.amounts.map(amount => Math.round((amount / capitalData.total) * 100));
@@ -63,7 +63,7 @@ export default function CapitalPlanSlide({ slideNumber }: CapitalPlanSlideProps)
     {
       icon: <DollarSign className="w-5 h-5" />,
       title: "Total Investment",
-      value: "৳92.9M",
+      value: "৳9.29 Cr",
       detail: "Strategic capital allocation",
       style: "gradient"
     },
@@ -77,7 +77,7 @@ export default function CapitalPlanSlide({ slideNumber }: CapitalPlanSlideProps)
     {
       icon: <Users className="w-5 h-5" />,
       title: "Capital Efficiency",
-      value: "৳5.5M",
+      value: "৳55 L",
       detail: "BDT per team member",
       style: "gradient"
     }
@@ -121,7 +121,7 @@ export default function CapitalPlanSlide({ slideNumber }: CapitalPlanSlideProps)
             callbacks: {
               label: function(context: any) {
                 const percentage = Math.round((context.raw / capitalData.total) * 100);
-                return `${context.label}: ${context.raw}M BDT (${percentage}%)`;
+                return `${context.label}: ৳${context.raw} Cr (${percentage}%)`;
               }
             }
           }
@@ -143,7 +143,7 @@ export default function CapitalPlanSlide({ slideNumber }: CapitalPlanSlideProps)
           ctx.textBaseline = "middle";
           ctx.fillStyle = "#2c3e50";
           
-          const text = "92.9M BDT";
+          const text = "৳9.29 Cr";
           const textX = Math.round((width - ctx.measureText(text).width) / 2);
           const textY = height / 2 - 10;
           
@@ -166,8 +166,8 @@ export default function CapitalPlanSlide({ slideNumber }: CapitalPlanSlideProps)
       data: {
         labels: ['Total Capital', ...capitalData.categories],
         datasets: [{
-          label: 'Capital Flow (Millions BDT)',
-          data: [92.9, -77.84, -7.50, -3.24, -2.42, -1.90],
+          label: 'Capital Flow (Crores BDT)',
+          data: [9.29, -7.784, -0.75, -0.324, -0.242, -0.19],
           backgroundColor: ['#27ae60', ...capitalData.colors.map(c => c + 'CC')],
           borderColor: ['#229954', ...capitalData.colors],
           borderWidth: 1
@@ -197,11 +197,11 @@ export default function CapitalPlanSlide({ slideNumber }: CapitalPlanSlideProps)
           },
           y: {
             beginAtZero: true,
-            title: { display: true, text: 'Amount (Millions BDT)', color: '#2c3e50' },
+            title: { display: true, text: 'Amount (Crores BDT)', color: '#2c3e50' },
             ticks: {
               color: '#374151',
               callback: function(value: any) {
-                return Math.abs(value) + 'M';
+                return '৳' + Math.abs(value) + ' Cr';
               }
             },
             grid: { color: 'rgba(0,0,0,0.1)' }
@@ -215,7 +215,7 @@ export default function CapitalPlanSlide({ slideNumber }: CapitalPlanSlideProps)
       data: {
         labels: capitalData.categories,
         datasets: [{
-          label: 'Investment (Millions BDT)',
+          label: 'Investment (Crores BDT)',
           data: capitalData.amounts,
           backgroundColor: capitalData.colors,
           borderColor: capitalData.colors.map(c => c.replace('0.7', '1')),
@@ -246,11 +246,11 @@ export default function CapitalPlanSlide({ slideNumber }: CapitalPlanSlideProps)
           },
           y: {
             beginAtZero: true,
-            title: { display: true, text: 'Amount (Millions BDT)', color: '#2c3e50' },
+            title: { display: true, text: 'Amount (Crores BDT)', color: '#2c3e50' },
             ticks: {
               color: '#374151',
               callback: function(value: any) {
-                return value + 'M';
+                return '৳' + value + ' Cr';
               }
             },
             grid: { color: 'rgba(0,0,0,0.1)' }
@@ -349,7 +349,7 @@ export default function CapitalPlanSlide({ slideNumber }: CapitalPlanSlideProps)
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-3xl font-bold mb-2">CAPITAL PLAN</h1>
-            <p className="text-lg opacity-90">Strategic Use of BDT 92.9M Investment</p>
+            <p className="text-lg opacity-90">Strategic Use of ৳9.29 Cr Investment</p>
           </motion.div>
 
           {/* Two Column Layout */}

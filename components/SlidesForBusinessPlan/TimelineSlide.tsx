@@ -86,9 +86,9 @@ export default function TimelineSlide() {
       milestones: [
         {
           icon: TrendingUp,
-          title: "Break-Even",
-          detail: "Q2 2028 - Operational Profitability", 
-          metric: "Sustainable Growth"
+          title: "GP Positive",
+          detail: "Q4 2028 - Gross Profit ৳1.5 Cr", 
+          metric: "Core Profitability"
         },
         {
           icon: Layers,
@@ -249,25 +249,33 @@ export default function TimelineSlide() {
             ))}
           </div>
 
-          {/* Key Success Metrics */}
+          {/* Extended Profit Targets - Full Width Bottom Row */}
           <motion.div
-            className="text-center"
+            className="w-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.6 }}
           >
-            <div className="flex justify-center space-x-8">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-green-400">3-5</div>
-                <div className="text-xs opacity-80">Anchor Partners</div>
+            <div className="bg-white/10 backdrop-blur-sm rounded p-1.5 border border-white/20">
+              <h3 className="text-center text-xs font-bold text-green-300 mb-1">Extended Targets</h3>
+              <div className="grid grid-cols-3 gap-2">
+                <div className="text-center bg-white/20 rounded px-2 py-1">
+                  <div className="text-xs text-green-300">Y3</div>
+                  <div className="text-xs font-bold text-white">GP+ ৳1.5Cr</div>
+                </div>
+                <div className="text-center bg-white/20 rounded px-2 py-1">
+                  <div className="text-xs text-green-300">Y4</div>
+                  <div className="text-xs font-bold text-white">EBITDA+ ৳12.6Cr</div>
+                </div>
+                <div className="text-center bg-white/20 rounded px-2 py-1">
+                  <div className="text-xs text-green-300">Y5</div>
+                  <div className="text-xs font-bold text-white">OP+ ৳1.6Cr</div>
+                </div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-green-400">10M+</div>
-                <div className="text-xs opacity-80">Profile Coverage</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-green-400">17</div>
-                <div className="text-xs opacity-80">Total Institutions</div>
+              <div className="mt-1 text-center">
+                <div className="text-xs text-white/60 bg-black/20 rounded px-2 py-0.5">
+                  Gross Profit | Earnings Before Interest, Taxes, Depreciation &amp; Amortization | Operating Profit
+                </div>
               </div>
             </div>
           </motion.div>

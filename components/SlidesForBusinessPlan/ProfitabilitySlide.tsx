@@ -46,13 +46,13 @@ export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlidePr
   const dynamicSlideNumber = useSlideNumber();
   useSlideTitle("Revenue & Profitability Model");
 
-  // P&L data from Excel (in Millions BDT)
+  // P&L data from Excel (in Crores BDT)
   const pnlData = {
     years: ['2026', '2027', '2028', '2029', '2030'],
-    revenue: [7.2, 15.6, 57.0, 126.0, 180.0],
-    costs: [45.2, 58.08, 72.49, 101.14, 148.43],
-    netProfit: [-60.07, -65.39, -41.04, -6.09, 16.03],
-    grossProfit: [-20.52, -18.57, 15.18, 77.11, 125.28],
+    revenue: [0.72, 1.56, 5.70, 12.60, 18.00],
+    costs: [4.52, 5.808, 7.249, 10.114, 14.843],
+    netProfit: [-6.007, -6.539, -4.104, -0.609, 1.603],
+    grossProfit: [-2.052, -1.857, 1.518, 7.711, 12.528],
     serviceCharges: {
       individual: 150,
       business: 500,
@@ -63,13 +63,13 @@ export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlidePr
     }
   };
 
-  // Service revenue distribution (based on projected Year 5 - 180M total)
+  // Service revenue distribution (based on projected Year 5 - 18 Cr total)
   const serviceRevenue = {
-    api: 72,            // 40% of 180M
-    individual: 45,     // 25% of 180M  
-    business: 36,       // 20% of 180M
-    monitoring: 18,     // 10% of 180M
-    bulk: 9            // 5% of 180M
+    api: 7.2,           // 40% of 18 Cr
+    individual: 4.5,    // 25% of 18 Cr
+    business: 3.6,      // 20% of 18 Cr
+    monitoring: 1.8,    // 10% of 18 Cr
+    bulk: 0.9           // 5% of 18 Cr
   };
 
   // Key metrics
@@ -91,7 +91,7 @@ export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlidePr
     {
       icon: <DollarSign className="w-5 h-5" />,
       title: "Y5 Net Profit",
-      value: "৳16M",
+      value: "৳1.6 Cr",
       detail: "First positive year",
       style: "gradient"
     }
@@ -104,7 +104,7 @@ export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlidePr
       data: {
         labels: pnlData.years,
         datasets: [{
-          label: 'Revenue (Millions BDT)',
+          label: 'Revenue (Crores BDT)',
           data: pnlData.revenue,
           borderColor: '#5daa80',
           backgroundColor: 'rgba(93, 170, 128, 0.1)',
@@ -122,7 +122,7 @@ export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlidePr
         plugins: {
           title: {
             display: true,
-            text: 'Revenue Growth: 7.2M to 180M BDT (2,400% Growth)',
+            text: 'Revenue Growth: 72L to 18 Cr BDT (2,400% Growth)',
             font: { size: 12, weight: 'bold' as const },
             color: '#2c3e50',
             padding: { top: 5, bottom: 10 }
@@ -140,11 +140,11 @@ export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlidePr
           },
           y: {
             beginAtZero: true,
-            title: { display: true, text: 'Revenue (Millions BDT)', color: '#2c3e50' },
+            title: { display: true, text: 'Revenue (Crores BDT)', color: '#2c3e50' },
             ticks: {
               color: '#374151',
               callback: function(value: any) {
-                return value + 'M';
+                return '৳' + value + ' Cr';
               }
             },
             grid: { color: 'rgba(0,0,0,0.1)' }
@@ -219,11 +219,11 @@ export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlidePr
           },
           y: {
             beginAtZero: true,
-            title: { display: true, text: 'Amount (Millions BDT)', color: '#2c3e50' },
+            title: { display: true, text: 'Amount (Crores BDT)', color: '#2c3e50' },
             ticks: {
               color: '#374151',
               callback: function(value: any) {
-                return value + 'M';
+                return '৳' + value + ' Cr';
               }
             },
             grid: { color: 'rgba(0,0,0,0.1)' }
@@ -244,8 +244,8 @@ export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlidePr
           'Bulk Data\nAccess'
         ],
         datasets: [{
-          label: 'Projected Year 5 Revenue (Millions BDT)',
-          data: [45, 36, 72, 18, 9, 9], // Revenue values
+          label: 'Projected Year 5 Revenue (Crores BDT)',
+          data: [4.5, 3.6, 7.2, 1.8, 0.9, 0.9], // Revenue values
           backgroundColor: [
             '#e74c3c',
             '#f39c12',
@@ -284,7 +284,7 @@ export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlidePr
                 const prices = ['150 BDT', '500 BDT', '25 BDT', '300 BDT', '100 BDT', '50K BDT'];
                 const serviceName = context.label.replace('\n', ' ');
                 return [
-                  `${serviceName}: ${revenue}M BDT revenue`,
+                  `${serviceName}: ৳${revenue} Cr revenue`,
                   `Unit Price: ${prices[context.dataIndex]}`
                 ];
               }
@@ -296,7 +296,7 @@ export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlidePr
         },
         scales: {
           x: {
-            title: { display: true, text: 'Service Types (Revenue in Millions BDT)', color: '#2c3e50' },
+            title: { display: true, text: 'Service Types (Revenue in Crores BDT)', color: '#2c3e50' },
             ticks: { 
               color: '#374151',
               maxRotation: 0,
@@ -308,11 +308,11 @@ export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlidePr
           },
           y: {
             beginAtZero: true,
-            title: { display: true, text: 'Annual Revenue (Millions BDT)', color: '#2c3e50' },
+            title: { display: true, text: 'Annual Revenue (Crores BDT)', color: '#2c3e50' },
             ticks: {
               color: '#374151',
               callback: function(value: any) {
-                return value + 'M';
+                return '৳' + value + ' Cr';
               }
             },
             grid: { color: 'rgba(0,0,0,0.1)' }
@@ -361,8 +361,8 @@ export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlidePr
             callbacks: {
               label: function(context: any) {
                 const percentage = context.raw;
-                const revenue = Math.round((percentage / 100) * 180);
-                return `${context.label}: ${percentage}% (${revenue}M BDT)`;
+                const revenue = Math.round((percentage / 100) * 18);
+                return `${context.label}: ${percentage}% (৳${revenue} Cr)`;
               }
             }
           }
