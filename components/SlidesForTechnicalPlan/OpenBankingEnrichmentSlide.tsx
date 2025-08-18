@@ -19,6 +19,7 @@ import {
   Target
 } from "lucide-react";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface OpenBankingEnrichmentSlideProps {
   slideNumber?: number;
@@ -28,6 +29,7 @@ export default function OpenBankingEnrichmentSlide({
   slideNumber 
 }: OpenBankingEnrichmentSlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Open Banking Integration & Data Enrichment");
 
   const rawDataTypes = [
     {

@@ -25,6 +25,7 @@ import {
   Mail
 } from "lucide-react";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface ConsumerServicesSlideProps {
   slideNumber?: number;
@@ -34,6 +35,7 @@ export default function ConsumerServicesSlide({
   slideNumber 
 }: ConsumerServicesSlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Consumer Service Use Cases");
 
   const services = [
     {

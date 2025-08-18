@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Globe, Linkedin } from "lucide-react";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface ContactSlideProps {
   slideNumber?: number;
@@ -10,6 +11,7 @@ interface ContactSlideProps {
 
 export default function ContactSlide({ slideNumber }: ContactSlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Technical Contact");
   return (
     <div className="presentation-slide presentation-gradient">
       <div className="pdf-container text-white relative">

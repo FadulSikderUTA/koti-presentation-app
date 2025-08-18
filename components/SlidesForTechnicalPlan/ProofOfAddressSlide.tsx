@@ -15,6 +15,7 @@ import {
   ArrowDown
 } from "lucide-react";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface ProofOfAddressSlideProps {
   slideNumber?: number;
@@ -24,6 +25,9 @@ export default function ProofOfAddressSlide({
   slideNumber 
 }: ProofOfAddressSlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  
+  // Register this slide's title for dynamic navigation
+  useSlideTitle("Proof of Address Verification");
 
   const verificationMethods = [
     {

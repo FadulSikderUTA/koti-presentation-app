@@ -2,10 +2,18 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 import Image from "next/image";
 import { getImagePath } from "@/lib/image-utils";
 
-export default function DataCoverageSlide() {
+interface DataCoverageSlideProps {
+  slideNumber?: number;
+}
+
+export default function DataCoverageSlide({ slideNumber }: DataCoverageSlideProps) {
+  const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Data Coverage");
   return (
     <div className="presentation-slide presentation-gradient">
       <div className="pdf-container text-white relative">
@@ -69,20 +77,20 @@ export default function DataCoverageSlide() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-1 bg-white/10 rounded-lg p-2 border border-white/20 -mx-2"
+            className="mt-1 bg-white/20 backdrop-blur-md rounded-lg p-3 border border-white/30 shadow-lg -mx-2"
           >
             <div className="grid grid-cols-3 gap-4 text-center text-xs">
               <div>
-                <div className="font-bold text-blue-400">Multi-Source</div>
-                <div className="text-white/80">Central Bank, Banks, NBFIs, Public Domain</div>
+                <div className="font-bold text-blue-contrast mb-1 header-with-background">Multi-Source</div>
+                <div className="text-white text-readable-background-sm">Central Bank, Banks, NBFIs, Public Domain</div>
               </div>
               <div>
-                <div className="font-bold text-green-400">Real-Time Processing</div>
-                <div className="text-white/80">Daily data updates & automated scoring</div>
+                <div className="font-bold text-green-contrast mb-1 header-with-background">Real-Time Processing</div>
+                <div className="text-white text-readable-background-sm">Daily data updates & automated scoring</div>
               </div>
               <div>
-                <div className="font-bold text-purple-400">Comprehensive Coverage</div>
-                <div className="text-white/80">Individual & corporate credit assessment</div>
+                <div className="font-bold text-purple-contrast mb-1 header-with-background">Comprehensive Coverage</div>
+                <div className="text-white text-readable-background-sm">Individual & corporate credit assessment</div>
               </div>
             </div>
           </motion.div>
@@ -98,7 +106,7 @@ export default function DataCoverageSlide() {
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>Data Coverage</span>
-              <span>14</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

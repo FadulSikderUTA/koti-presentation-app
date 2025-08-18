@@ -14,8 +14,14 @@ import {
   Smartphone,
   Eye
 } from "lucide-react";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 export default function ComplianceSlide() {
+  const dynamicSlideNumber = useSlideNumber();
+  
+  // Register this slide's title for dynamic navigation
+  useSlideTitle("Compliance & Complaints Policy");
   const complaintChannels = [
     {
       id: 1,
@@ -213,16 +219,16 @@ export default function ComplianceSlide() {
           >
             <div className="grid grid-cols-3 gap-3 text-center">
               <div>
-                <div className="text-xl font-bold text-green-400">2 Days</div>
-                <div className="text-xs text-white/80">Standard Response</div>
+                <div className="text-xl font-bold text-green-contrast header-with-background">2 Days</div>
+                <div className="text-xs text-white text-readable-background-sm">Standard Response</div>
               </div>
               <div>
-                <div className="text-xl font-bold text-blue-400">35 Days</div>
-                <div className="text-xs text-white/80">Maximum Resolution</div>
+                <div className="text-xl font-bold text-blue-contrast header-with-background">35 Days</div>
+                <div className="text-xs text-white text-readable-background-sm">Maximum Resolution</div>
               </div>
               <div>
-                <div className="text-xl font-bold text-purple-400">100%</div>
-                <div className="text-xs text-white/80">Record Keeping</div>
+                <div className="text-xl font-bold text-purple-contrast header-with-background">100%</div>
+                <div className="text-xs text-white text-readable-background-sm">Record Keeping</div>
               </div>
             </div>
           </motion.div>
@@ -238,7 +244,7 @@ export default function ComplianceSlide() {
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>Compliance & Complaints Policy</span>
-              <span>13</span>
+              <span>{dynamicSlideNumber.toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

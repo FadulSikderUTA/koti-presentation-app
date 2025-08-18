@@ -14,6 +14,7 @@ import {
   Activity
 } from "lucide-react";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface ArchitecturePrinciplesSlideProps {
   slideNumber?: number;
@@ -23,6 +24,9 @@ export default function ArchitecturePrinciplesSlide({
   slideNumber 
 }: ArchitecturePrinciplesSlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  
+  // Register this slide's title for dynamic navigation
+  useSlideTitle("Architecture Principles & Hosting Posture");
 
   const principles = [
     {

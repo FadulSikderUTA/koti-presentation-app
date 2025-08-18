@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface OurSolutionSlideProps {
   version?: string;
@@ -11,6 +12,8 @@ export default function OurSolutionSlide({
   version = "V1", 
   date = "08/11" 
 }: OurSolutionSlideProps) {
+  // Register slide title dynamically
+  useSlideTitle("Our Solution");
   return (
     <div className="presentation-slide presentation-gradient">
       <div className="pdf-container text-white relative">

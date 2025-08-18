@@ -4,16 +4,22 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Users, AlertCircle, Database, Brain, LineChart, ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface ScoringComponentSlideProps {
   version?: string;
   date?: string;
+  slideNumber?: number;
 }
 
 export default function ScoringComponentSlide({ 
   version = "V1", 
-  date = "08/11" 
+  date = "08/11",
+  slideNumber
 }: ScoringComponentSlideProps) {
+  const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Scoring Component");
   // Five-phase methodology data
   const phases = [
     {
@@ -233,7 +239,7 @@ export default function ScoringComponentSlide({
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>Scoring Component</span>
-              <span>20</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

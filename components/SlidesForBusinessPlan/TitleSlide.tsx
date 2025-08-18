@@ -1,20 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface TitleSlideProps {
   companyName?: string;
   tagline?: string;
   version?: string;
   date?: string;
+  slideNumber?: number;
 }
 
 export default function TitleSlide({ 
   companyName = "Koti", 
   tagline = "",
   version = "V1",
-  date = "08/11"
+  date = "08/11",
+  slideNumber
 }: TitleSlideProps) {
+  const dynamicSlideNumber = useSlideNumber();
+  
+  // Register slide title dynamically
+  useSlideTitle("Introduction");
+  
   return (
     <div className="presentation-slide presentation-gradient">
       <div className="pdf-container text-white relative">
@@ -87,7 +96,7 @@ export default function TitleSlide({
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>Introduction</span>
-              <span>01</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

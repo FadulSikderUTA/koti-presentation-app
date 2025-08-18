@@ -2,10 +2,20 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 import Image from "next/image";
 import { getImagePath } from "@/lib/image-utils";
 
-export default function TeamSlide() {
+interface TeamSlideProps {
+  slideNumber?: number;
+}
+
+export default function TeamSlide({ slideNumber }: TeamSlideProps) {
+  const dynamicSlideNumber = useSlideNumber();
+  
+  // Register this slide's title for dynamic navigation
+  useSlideTitle("The Team");
   const teamMembers = [
     {
       id: 1,
@@ -224,7 +234,7 @@ export default function TeamSlide() {
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>The Team</span>
-              <span>22</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

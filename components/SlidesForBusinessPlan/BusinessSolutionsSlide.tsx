@@ -2,6 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 import { 
   TrendingUp, 
   Shield, 
@@ -26,7 +28,15 @@ import {
   Settings
 } from "lucide-react";
 
-export default function BusinessSolutionsSlide() {
+interface BusinessSolutionsSlideProps {
+  slideNumber?: number;
+}
+
+export default function BusinessSolutionsSlide({ slideNumber }: BusinessSolutionsSlideProps) {
+  const dynamicSlideNumber = useSlideNumber();
+  
+  // Register this slide's title for dynamic navigation
+  useSlideTitle("Business Solutions");
   const solutions = [
     {
       icon: TrendingUp,
@@ -451,7 +461,7 @@ export default function BusinessSolutionsSlide() {
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>Business Solutions</span>
-              <span>05</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

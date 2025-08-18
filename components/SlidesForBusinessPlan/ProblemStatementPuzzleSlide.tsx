@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface ProblemStatementSlideProps {
   version?: string;
@@ -11,6 +12,8 @@ export default function ProblemStatementPuzzleSlide({
   version = "V1",
   date = "08/11",
 }: ProblemStatementSlideProps) {
+  // Register slide title dynamically
+  useSlideTitle("Problem Statement");
   const problemText =
     "Bangladesh's lending ecosystem is hampered by severe data fragmentation and the absence of a comprehensive, trusted credit information infrastructure. Consumer and SME data are left sparse and siloed across banks, MFIs, utilities, and digital platforms, creating significant information asymmetry. This leaves lenders with incomplete risk signals and renders vast populations of individuals and businesses—particularly thin-file and new-to-credit applicants—\"credit invisible.\" As a result, a cycle of financial exclusion is perpetuated, stifling fair access to finance and constraining both individual opportunity and responsible economic growth.";
 

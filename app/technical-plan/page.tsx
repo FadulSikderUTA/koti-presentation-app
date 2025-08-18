@@ -3,6 +3,7 @@
 import EnhancedPresentationContainer from "@/components/EnhancedPresentationContainer";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import SlideWrapper from "@/components/SlideWrapper";
+import { technicalPlanSlideMetadata } from "@/lib/slideMetadata";
 import TitleSlide from "@/components/SlidesForTechnicalPlan/TitleSlide";
 import InfrastructureOverviewSlide from "@/components/SlidesForTechnicalPlan/InfrastructureOverviewSlide";
 import ArchitecturePrinciplesSlide from "@/components/SlidesForTechnicalPlan/ArchitecturePrinciplesSlide";
@@ -49,7 +50,11 @@ export default function TechnicalPlanPresentation() {
 
   return (
     <ProtectedRoute>
-      <EnhancedPresentationContainer showHomeButton={true}>
+      <EnhancedPresentationContainer 
+        showHomeButton={true}
+        enableNavigationPanel={true}
+        slideMetadata={technicalPlanSlideMetadata}
+      >
         {slides.map((slide, index) => (
           <SlideWrapper key={slide.key} slideNumber={index + 1}>
             {slide}

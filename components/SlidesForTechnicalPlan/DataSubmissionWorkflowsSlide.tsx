@@ -21,6 +21,7 @@ import {
   GitBranch
 } from "lucide-react";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface DataSubmissionWorkflowsSlideProps {
   slideNumber?: number;
@@ -30,6 +31,7 @@ export default function DataSubmissionWorkflowsSlide({
   slideNumber 
 }: DataSubmissionWorkflowsSlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Data Submission Workflows");
 
   const apiWorkflow = {
     title: "API Real-Time Path",

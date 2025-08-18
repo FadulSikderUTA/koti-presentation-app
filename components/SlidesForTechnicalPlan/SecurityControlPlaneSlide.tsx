@@ -20,6 +20,7 @@ import {
   DollarSign
 } from "lucide-react";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface SecurityControlPlaneSlideProps {
   slideNumber?: number;
@@ -29,6 +30,7 @@ export default function SecurityControlPlaneSlide({
   slideNumber 
 }: SecurityControlPlaneSlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Security Control Plane & Compliance Guardrails");
 
   const securityControlStack = [
     {

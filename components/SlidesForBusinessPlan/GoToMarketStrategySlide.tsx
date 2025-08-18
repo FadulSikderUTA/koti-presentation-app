@@ -1,14 +1,20 @@
 "use client";
 import { motion } from "framer-motion";
 import { Building2, Users, Smartphone, Shield, TrendingUp, Globe, Handshake, BookOpen } from "lucide-react";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface GoToMarketStrategySlideProps {
   companyName?: string;
+  slideNumber?: number;
 }
 
 export default function GoToMarketStrategySlide({ 
-  companyName = "Koti" 
+  companyName = "Koti",
+  slideNumber
 }: GoToMarketStrategySlideProps) {
+  const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Go-to-Market Strategy");
   const penetrationStrategies = [
     {
       id: 1,

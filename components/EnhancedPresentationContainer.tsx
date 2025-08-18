@@ -3,18 +3,30 @@
 import { useRef, useState, useEffect, Children } from "react";
 import { useSlideNavigation } from "@/hooks/useSlideNavigation";
 import PresentationNavigation from "./PresentationNavigation";
+import SlideNavigationPanel from "./SlideNavigationPanel";
+import { SlideMetadata } from "@/lib/slideMetadata";
+import { SlideTitleProvider, useSlideTitleContext } from "@/contexts/SlideTitleContext";
 
 interface EnhancedPresentationContainerProps {
   children: React.ReactNode;
   showHomeButton?: boolean;
+  enableNavigationPanel?: boolean;
+  slideMetadata?: SlideMetadata[];
 }
 
-export default function EnhancedPresentationContainer({ 
+// Inner component that has access to SlideTitleContext
+function PresentationContainerInner({ 
   children,
-  showHomeButton = false
+  showHomeButton = false,
+  enableNavigationPanel = false,
+  slideMetadata = []
 }: EnhancedPresentationContainerProps) {
   const presentationRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isNavigationPanelOpen, setIsNavigationPanelOpen] = useState(false);
+  
+  // Access dynamic slide titles
+  const { getAllSlideTitles } = useSlideTitleContext();
   
   // Convert children to array to count slides
   const slides = Children.toArray(children);
@@ -50,6 +62,20 @@ export default function EnhancedPresentationContainer({
 
   return (
     <div className="relative h-screen overflow-hidden">
+      {/* Slide Navigation Panel (conditionally rendered) */}
+      {enableNavigationPanel && slideMetadata.length > 0 && (
+        <SlideNavigationPanel
+          isOpen={isNavigationPanelOpen}
+          onToggle={() => setIsNavigationPanelOpen(!isNavigationPanelOpen)}
+          currentSlide={currentSlide}
+          totalSlides={totalSlides}
+          onSlideChange={(index) => {
+            goToSlide(index);
+            setIsNavigationPanelOpen(false);
+          }}
+          slideMetadata={slideMetadata}
+        />
+      )}
 
       {/* Presentation Container with Scroll Snap */}
       <div 
@@ -86,5 +112,14 @@ export default function EnhancedPresentationContainer({
         showHomeButton={showHomeButton}
       />
     </div>
+  );
+}
+
+// Main export component that provides SlideTitleContext
+export default function EnhancedPresentationContainer(props: EnhancedPresentationContainerProps) {
+  return (
+    <SlideTitleProvider>
+      <PresentationContainerInner {...props} />
+    </SlideTitleProvider>
   );
 }

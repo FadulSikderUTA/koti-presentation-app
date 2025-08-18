@@ -17,6 +17,7 @@ import {
   Globe
 } from "lucide-react";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface DataCenterDRSlideProps {
   slideNumber?: number;
@@ -26,6 +27,9 @@ export default function DataCenterDRSlide({
   slideNumber 
 }: DataCenterDRSlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  
+  // Register this slide's title for dynamic navigation
+  useSlideTitle("Data Center & Disaster Recovery Architecture");
 
   const dcComponents = [
     { icon: <Server className="w-3 h-3 text-blue-600" />, label: "App Cluster", detail: "HA Pairs" },

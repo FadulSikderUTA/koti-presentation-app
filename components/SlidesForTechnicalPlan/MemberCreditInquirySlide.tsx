@@ -19,6 +19,7 @@ import {
   BarChart3
 } from "lucide-react";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface MemberCreditInquirySlideProps {
   slideNumber?: number;
@@ -28,6 +29,7 @@ export default function MemberCreditInquirySlide({
   slideNumber 
 }: MemberCreditInquirySlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Member Credit Inquiry Process");
 
   const systems = [
     { name: "Member\nSystem", color: "bg-blue-100", icon: <CreditCard className="w-4 h-4 text-blue-600" /> },

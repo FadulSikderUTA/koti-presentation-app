@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface TitleSlideProps {
   companyName?: string;
@@ -20,6 +21,9 @@ export default function TitleSlide({
   slideNumber
 }: TitleSlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  
+  // Register this slide's title for dynamic navigation
+  useSlideTitle("Technical Overview");
   return (
     <div className="presentation-slide presentation-gradient">
       <div className="pdf-container text-white relative">

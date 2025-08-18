@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Users, AlertCircle, Database, Brain, LineChart, ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface KotiCreditScoreMethodologySlideProps {
   slideNumber?: number;
@@ -14,6 +15,7 @@ export default function KotiCreditScoreMethodologySlide({
   slideNumber 
 }: KotiCreditScoreMethodologySlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Koti Credit Score Methodology");
 
   // Five-phase methodology data
   const phases = [

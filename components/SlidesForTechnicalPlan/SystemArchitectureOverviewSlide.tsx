@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { getImagePath } from "@/lib/image-utils";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 import { Shield, Server, Link, CheckCircle, Activity, Clock } from "lucide-react";
 
 interface SystemArchitectureOverviewSlideProps {
@@ -15,6 +16,9 @@ export default function SystemArchitectureOverviewSlide({
   slideNumber 
 }: SystemArchitectureOverviewSlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  
+  // Register this slide's title for dynamic navigation
+  useSlideTitle("System Architecture Overview");
 
   return (
     <div className="presentation-slide presentation-gradient">

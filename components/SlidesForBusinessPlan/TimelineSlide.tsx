@@ -14,8 +14,14 @@ import {
   Target,
   ArrowRight
 } from "lucide-react";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 export default function TimelineSlide() {
+  const dynamicSlideNumber = useSlideNumber();
+  
+  // Register this slide's title for dynamic navigation
+  useSlideTitle("36-Month Execution Timeline");
   const phases = [
     {
       id: 1,
@@ -277,7 +283,7 @@ export default function TimelineSlide() {
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>36-Month Execution Timeline</span>
-              <span>12</span>
+              <span>{dynamicSlideNumber.toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

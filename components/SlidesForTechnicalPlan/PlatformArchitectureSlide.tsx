@@ -20,6 +20,7 @@ import {
   MapPin
 } from "lucide-react";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface PlatformArchitectureSlideProps {
   slideNumber?: number;
@@ -29,6 +30,7 @@ export default function PlatformArchitectureSlide({
   slideNumber 
 }: PlatformArchitectureSlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Platform Architecture & Runtime Stack");
 
   const platformModules = [
     {

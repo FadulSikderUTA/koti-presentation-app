@@ -14,8 +14,16 @@ import {
   UserCheck,
   BarChart3
 } from "lucide-react";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
-export default function CompetitiveAnalysisSlide() {
+interface CompetitiveAnalysisSlideProps {
+  slideNumber?: number;
+}
+
+export default function CompetitiveAnalysisSlide({ slideNumber }: CompetitiveAnalysisSlideProps = {}) {
+  const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Competitive Analysis");
   const strategicPillars = [
     {
       icon: <Users className="w-6 h-6 text-green-600" />,
@@ -171,10 +179,10 @@ export default function CompetitiveAnalysisSlide() {
               {/* Matrix Container */}
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 flex-1 relative border border-white/20">
                 {/* Axis Labels */}
-                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-white/80">
+                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-white text-readable-background">
                   Scoring Approach: Traditional → Hybrid Alt-Data
                 </div>
-                <div className="absolute -left-16 top-1/2 transform -translate-y-1/2 -rotate-90 text-xs text-white/80 whitespace-nowrap">
+                <div className="absolute -left-16 top-1/2 transform -translate-y-1/2 -rotate-90 text-xs text-white text-readable-background whitespace-nowrap">
                   Market Coverage: Enterprise → Two-Sided
                 </div>
 
@@ -261,7 +269,7 @@ export default function CompetitiveAnalysisSlide() {
                         advantage.style === 'white' ? 'text-gray-800' : 'text-white'
                       }`}>{advantage.title}</h4>
                       <p className={`text-xs ${
-                        advantage.style === 'white' ? 'text-gray-600' : 'text-white/80'
+                        advantage.style === 'white' ? 'text-gray-600' : 'text-white'
                       }`}>{advantage.description}</p>
                     </div>
                   </div>
@@ -281,7 +289,7 @@ export default function CompetitiveAnalysisSlide() {
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>Competitive Analysis</span>
-              <span>21</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

@@ -14,6 +14,7 @@ import {
   Target
 } from "lucide-react";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface InfrastructureOverviewSlideProps {
   slideNumber?: number;
@@ -23,6 +24,9 @@ export default function InfrastructureOverviewSlide({
   slideNumber 
 }: InfrastructureOverviewSlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  
+  // Register this slide's title for dynamic navigation
+  useSlideTitle("Infrastructure Overview & Regulatory Alignment");
 
   const sovereigntyFeatures = [
     {

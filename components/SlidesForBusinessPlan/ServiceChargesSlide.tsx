@@ -2,6 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 import { 
   Building2, 
   Smartphone, 
@@ -13,13 +15,19 @@ import {
   CheckCircle
 } from "lucide-react";
 
-export default function ServiceChargesSlide() {
+interface ServiceChargesSlideProps {
+  slideNumber?: number;
+}
+
+export default function ServiceChargesSlide({ slideNumber }: ServiceChargesSlideProps) {
+  const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Service Charges");
   const bankFees = [
     { year: "Year 1", amount: "100,000", highlight: false },
     { year: "Year 2", amount: "200,000", highlight: false },
     { year: "Year 3", amount: "300,000", highlight: false },
     { year: "Year 4", amount: "500,000", highlight: false },
-    { year: "Year 5+", amount: "600,000", highlight: true }
+    { year: "Year 5+", amount: "500,000", highlight: true }
   ];
 
   const otherB2BFees = [
@@ -82,9 +90,9 @@ export default function ServiceChargesSlide() {
               className="space-y-2"
             >
               <div className="mb-2">
-                <h2 className="text-lg font-bold mb-1 flex items-center gap-2">
-                  <Building2 className="w-5 h-5 text-blue-400" />
-                  Banks (Annual)
+                <h2 className="text-lg font-bold mb-1 flex items-center gap-2 header-with-background">
+                  <Building2 className="w-5 h-5 text-blue-contrast" />
+                  <span className="text-blue-contrast">Banks (Annual)</span>
                 </h2>
                 <p className="text-xs opacity-80">Incremental subscription model</p>
               </div>
@@ -139,9 +147,9 @@ export default function ServiceChargesSlide() {
               className="space-y-2"
             >
               <div className="mb-2">
-                <h2 className="text-lg font-bold mb-1 flex items-center gap-2">
-                  <ShoppingBag className="w-5 h-5 text-purple-400" />
-                  Other B2B (Annual)
+                <h2 className="text-lg font-bold mb-1 flex items-center gap-2 header-with-background">
+                  <ShoppingBag className="w-5 h-5 text-purple-contrast" />
+                  <span className="text-purple-contrast">Other B2B (Annual)</span>
                 </h2>
                 <p className="text-xs opacity-80">FMCG, MFI, E-Commerce, Tech</p>
               </div>
@@ -186,9 +194,9 @@ export default function ServiceChargesSlide() {
               className="space-y-2"
             >
               <div className="mb-2">
-                <h2 className="text-lg font-bold mb-1 flex items-center gap-2">
-                  <Smartphone className="w-5 h-5 text-green-400" />
-                  Consumer App
+                <h2 className="text-lg font-bold mb-1 flex items-center gap-2 header-with-background">
+                  <Smartphone className="w-5 h-5 text-green-contrast" />
+                  <span className="text-green-contrast">Consumer App</span>
                 </h2>
                 <p className="text-xs opacity-80">Freemium to subscription model</p>
               </div>
@@ -274,7 +282,7 @@ export default function ServiceChargesSlide() {
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>Service Charges</span>
-              <span>19</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

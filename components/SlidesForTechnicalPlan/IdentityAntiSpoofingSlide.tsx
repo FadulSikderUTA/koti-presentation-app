@@ -17,6 +17,7 @@ import {
   Zap
 } from "lucide-react";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface IdentityAntiSpoofingSlideProps {
   slideNumber?: number;
@@ -26,6 +27,7 @@ export default function IdentityAntiSpoofingSlide({
   slideNumber 
 }: IdentityAntiSpoofingSlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Identity Verification & Anti-Spoofing");
 
   const securityLayers = [
     {

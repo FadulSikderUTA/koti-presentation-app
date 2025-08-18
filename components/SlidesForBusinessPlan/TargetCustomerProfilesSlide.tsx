@@ -1,14 +1,20 @@
 "use client";
 import { motion } from "framer-motion";
 import { Users, Building2, Smartphone, Tractor } from "lucide-react";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface TargetCustomerProfilesSlideProps {
   companyName?: string;
+  slideNumber?: number;
 }
 
 export default function TargetCustomerProfilesSlide({ 
-  companyName = "Koti" 
+  companyName = "Koti",
+  slideNumber
 }: TargetCustomerProfilesSlideProps) {
+  const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Target Customer Profiles");
   const personas = [
     {
       id: 1,
@@ -172,19 +178,19 @@ export default function TargetCustomerProfilesSlide({
           >
             <div className="flex justify-center space-x-7">
               <div className="text-center">
-                <div className="text-sm font-bold text-green-400">198M</div>
+                <div className="text-sm font-bold text-green-contrast header-with-background">198M</div>
                 <div className="text-xs opacity-80">MFS Users</div>
               </div>
               <div className="text-center">
-                <div className="text-sm font-bold text-green-400">2,500+</div>
+                <div className="text-sm font-bold text-green-contrast header-with-background">2,500+</div>
                 <div className="text-xs opacity-80">E-commerce Platforms</div>
               </div>
               <div className="text-center">
-                <div className="text-sm font-bold text-green-400">20M</div>
+                <div className="text-sm font-bold text-green-contrast header-with-background">20M</div>
                 <div className="text-xs opacity-80">Smallholder Farmers</div>
               </div>
               <div className="text-center">
-                <div className="text-sm font-bold text-green-400">731</div>
+                <div className="text-sm font-bold text-green-contrast header-with-background">731</div>
                 <div className="text-xs opacity-80">MFIs</div>
               </div>
             </div>

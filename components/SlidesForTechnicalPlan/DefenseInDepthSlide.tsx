@@ -17,6 +17,7 @@ import {
   Users
 } from "lucide-react";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface DefenseInDepthSlideProps {
   slideNumber?: number;
@@ -26,6 +27,9 @@ export default function DefenseInDepthSlide({
   slideNumber 
 }: DefenseInDepthSlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  
+  // Register this slide's title for dynamic navigation
+  useSlideTitle("Defense-in-Depth Network Security");
 
   const edgeDefenses = [
     {

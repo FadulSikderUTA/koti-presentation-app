@@ -13,6 +13,7 @@ import {
   Database
 } from "lucide-react";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface DataCollectionGovernanceSlideProps {
   slideNumber?: number;
@@ -22,6 +23,9 @@ export default function DataCollectionGovernanceSlide({
   slideNumber 
 }: DataCollectionGovernanceSlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  
+  // Register this slide's title for dynamic navigation
+  useSlideTitle("Data Collection Principles & Governance");
 
   const governancePrinciples = [
     {

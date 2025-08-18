@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -37,15 +39,21 @@ ChartJS.register(
 // Define the chart configuration keys type
 type ChartConfigKey = 'allocation' | 'deployment' | 'dashboard' | 'efficiency';
 
-export default function CapitalPlanSlide() {
-  const [activeChart, setActiveChart] = useState<ChartConfigKey>('allocation');
+interface CapitalPlanSlideProps {
+  slideNumber?: number;
+}
 
-  // Capital plan data from reference
+export default function CapitalPlanSlide({ slideNumber }: CapitalPlanSlideProps) {
+  const [activeChart, setActiveChart] = useState<ChartConfigKey>('allocation');
+  const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Capital Plan");
+
+  // Capital plan data from Excel (in Millions BDT)
   const capitalData = {
-    categories: ['IT Infrastructure', 'Office Setup', 'Rent Advance', 'Employee Tech', 'Other Equipment'],
-    amounts: [30.0, 7.5, 3.2, 2.4, 1.9],
+    categories: ['IT Infrastructure', 'Office Decoration', 'Rent Advance', 'Employee Laptops', 'Office Equipment'],
+    amounts: [77.84, 7.50, 3.24, 2.42, 1.90],
     colors: ['#3498db', '#e74c3c', '#f39c12', '#27ae60', '#9b59b6'],
-    total: 45.1
+    total: 92.90
   };
 
   const percentages = capitalData.amounts.map(amount => Math.round((amount / capitalData.total) * 100));
@@ -55,21 +63,21 @@ export default function CapitalPlanSlide() {
     {
       icon: <DollarSign className="w-5 h-5" />,
       title: "Total Investment",
-      value: "45.1M",
+      value: "৳92.9M",
       detail: "Strategic capital allocation",
       style: "gradient"
     },
     {
       icon: <Target className="w-5 h-5" />,
       title: "Technology Focus", 
-      value: "67%",
+      value: "84%",
       detail: "Core platform investment",
       style: "white"
     },
     {
       icon: <Users className="w-5 h-5" />,
       title: "Capital Efficiency",
-      value: "2.7M",
+      value: "৳5.5M",
       detail: "BDT per team member",
       style: "gradient"
     }
@@ -135,7 +143,7 @@ export default function CapitalPlanSlide() {
           ctx.textBaseline = "middle";
           ctx.fillStyle = "#2c3e50";
           
-          const text = "45.1M BDT";
+          const text = "92.9M BDT";
           const textX = Math.round((width - ctx.measureText(text).width) / 2);
           const textY = height / 2 - 10;
           
@@ -159,7 +167,7 @@ export default function CapitalPlanSlide() {
         labels: ['Total Capital', ...capitalData.categories],
         datasets: [{
           label: 'Capital Flow (Millions BDT)',
-          data: [45.1, -30.0, -7.5, -3.2, -2.4, -1.9],
+          data: [92.9, -77.84, -7.50, -3.24, -2.42, -1.90],
           backgroundColor: ['#27ae60', ...capitalData.colors.map(c => c + 'CC')],
           borderColor: ['#229954', ...capitalData.colors],
           borderWidth: 1
@@ -341,7 +349,7 @@ export default function CapitalPlanSlide() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-3xl font-bold mb-2">CAPITAL PLAN</h1>
-            <p className="text-lg opacity-90">Strategic Use of BDT 45.1M Investment</p>
+            <p className="text-lg opacity-90">Strategic Use of BDT 92.9M Investment</p>
           </motion.div>
 
           {/* Two Column Layout */}
@@ -378,7 +386,7 @@ export default function CapitalPlanSlide() {
                       metric.style === 'white' ? 'text-green-600' : 'text-white'
                     }`}>{metric.value}</div>
                     <p className={`text-xs ${
-                      metric.style === 'white' ? 'text-gray-600' : 'text-white/80'
+                      metric.style === 'white' ? 'text-gray-600' : 'text-white'
                     }`}>{metric.detail}</p>
                   </div>
                 </motion.div>
@@ -446,7 +454,7 @@ export default function CapitalPlanSlide() {
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>Capital Plan</span>
-              <span>17</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

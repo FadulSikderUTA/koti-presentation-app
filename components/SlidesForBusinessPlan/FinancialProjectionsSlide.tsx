@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -33,42 +35,56 @@ ChartJS.register(
 // Define the chart configuration keys type
 type ChartConfigKey = 'stacked' | 'area' | 'comparison';
 
-export default function FinancialProjectionsSlide() {
-  const [activeChart, setActiveChart] = useState<ChartConfigKey>('stacked');
+interface FinancialProjectionsSlideProps {
+  slideNumber?: number;
+}
 
-  // Financial data from reference
-  const years = ['2026', '2027', '2028', '2029', '2030'];
-  const currentAssets = [105, 150, 250, 400, 600];
-  const fixedAssets = [10, 15, 25, 40, 60];
-  const totalAssets = currentAssets.map((ca, i) => ca + fixedAssets[i]);
+export default function FinancialProjectionsSlide({ slideNumber }: FinancialProjectionsSlideProps) {
+  const [activeChart, setActiveChart] = useState<ChartConfigKey>('stacked');
+  const dynamicSlideNumber = useSlideNumber();
   
-  const currentLiabilities = [15, 20, 30, 45, 65];
-  const longTermLiabilities = [5, 10, 15, 20, 25];
-  const totalEquity = [95, 135, 230, 375, 570];
-  const totalLiabilities = currentLiabilities.map((cl, i) => cl + longTermLiabilities[i]);
+  // Register slide title dynamically
+  useSlideTitle("Financial Projections");
+
+  // Financial data from Excel (in Crores BDT)
+  const years = ['2026', '2027', '2028', '2029', '2030'];
+  
+  // Assets (in Crores)
+  const currentAssets = [2.20, 2.80, 5.83, 2.36, 3.87];
+  const fixedAssets = [6.83, 4.70, 2.56, 0.43, 0.53];
+  const totalAssets = [9.03, 7.49, 8.39, 2.79, 4.39];
+  
+  // Liabilities (in Crores)
+  const currentLiabilities = [0.04, 0.04, 0.04, 0.04, 0.05];
+  const shareholdersLoan = [5.00, 5.00, 5.00, 0, 0]; // Loan from shareholders
+  const totalEquity = [3.99, 2.45, 3.35, 2.74, 4.34];
+  const totalLiabilities = currentLiabilities.map((cl, i) => cl + shareholdersLoan[i]);
   const liabilitiesPlusEquity = totalLiabilities.map((tl, i) => tl + totalEquity[i]);
+  
+  // Revenue data for context (in Crores)
+  const revenue = [0.72, 1.56, 5.70, 12.60, 18.00];
 
   // Key metrics
   const keyMetrics = [
     {
       icon: <TrendingUp className="w-5 h-5" />,
-      title: "Total Growth",
-      value: "474%",
-      detail: "5-year asset growth",
+      title: "Revenue Growth",
+      value: "25x",
+      detail: "5-year revenue growth",
       style: "gradient"
     },
     {
       icon: <Target className="w-5 h-5" />,
       title: "Equity Ratio",
-      value: "86%",
-      detail: "Year 5 equity percentage",
+      value: "99%",
+      detail: "Year 5 equity to assets",
       style: "white"
     },
     {
       icon: <DollarSign className="w-5 h-5" />,
-      title: "Asset Base",
-      value: "660M",
-      detail: "Projected Year 5 assets",
+      title: "Revenue Y5",
+      value: "৳18 Cr",
+      detail: "Projected 2030 revenue",
       style: "gradient"
     }
   ];
@@ -102,8 +118,8 @@ export default function FinancialProjectionsSlide() {
             borderWidth: 1
           },
           {
-            label: 'Long-term Liabilities',
-            data: longTermLiabilities,
+            label: 'Loan from Shareholders',
+            data: shareholdersLoan,
             backgroundColor: '#a93226',
             borderColor: '#922b21',
             borderWidth: 1
@@ -123,7 +139,7 @@ export default function FinancialProjectionsSlide() {
         plugins: {
           title: {
             display: true,
-            text: 'Balance Sheet: Assets = Liabilities + Equity',
+            text: 'Balance Sheet Components (BDT Crores)',
             font: { size: 12, weight: 'bold' as const },
             color: '#2c3e50',
             padding: { top: 5, bottom: 10 }
@@ -149,11 +165,11 @@ export default function FinancialProjectionsSlide() {
           },
           y: {
             beginAtZero: true,
-            title: { display: true, text: 'Value (Millions)', color: '#2c3e50' },
+            title: { display: true, text: 'Value (Crores BDT)', color: '#2c3e50' },
             ticks: {
               color: '#374151',
               callback: function(value: any) {
-                return value + 'M';
+                return '৳' + value + ' Cr';
               }
             },
             grid: { color: 'rgba(0,0,0,0.1)' }
@@ -193,6 +209,15 @@ export default function FinancialProjectionsSlide() {
             fill: true,
             tension: 0.4,
             borderWidth: 3
+          },
+          {
+            label: 'Revenue',
+            data: revenue,
+            borderColor: '#9b59b6',
+            backgroundColor: 'rgba(155, 89, 182, 0.1)',
+            fill: true,
+            tension: 0.4,
+            borderWidth: 3
           }
         ]
       },
@@ -202,7 +227,7 @@ export default function FinancialProjectionsSlide() {
         plugins: {
           title: {
             display: true,
-            text: 'Financial Growth Trends Over 5 Years',
+            text: 'Financial Trends & Revenue Growth (BDT Crores)',
             font: { size: 12, weight: 'bold' as const },
             color: '#2c3e50',
             padding: { top: 5, bottom: 10 }
@@ -228,11 +253,11 @@ export default function FinancialProjectionsSlide() {
           },
           y: {
             beginAtZero: true,
-            title: { display: true, text: 'Value (Millions)', color: '#2c3e50' },
+            title: { display: true, text: 'Value (Crores BDT)', color: '#2c3e50' },
             ticks: {
               color: '#374151',
               callback: function(value: any) {
-                return value + 'M';
+                return '৳' + value + ' Cr';
               }
             },
             grid: { color: 'rgba(0,0,0,0.1)' }
@@ -274,7 +299,7 @@ export default function FinancialProjectionsSlide() {
         plugins: {
           title: {
             display: true,
-            text: 'Balance Sheet Equation: Assets = Liabilities + Equity',
+            text: 'Balance Sheet Verification: Assets = Liabilities + Equity (BDT Crores)',
             font: { size: 12, weight: 'bold' as const },
             color: '#2c3e50',
             padding: { top: 5, bottom: 10 }
@@ -300,11 +325,11 @@ export default function FinancialProjectionsSlide() {
           },
           y: {
             beginAtZero: true,
-            title: { display: true, text: 'Value (Millions)', color: '#2c3e50' },
+            title: { display: true, text: 'Value (Crores BDT)', color: '#2c3e50' },
             ticks: {
               color: '#374151',
               callback: function(value: any) {
-                return value + 'M';
+                return '৳' + value + ' Cr';
               }
             },
             grid: { color: 'rgba(0,0,0,0.1)' }
@@ -456,7 +481,7 @@ export default function FinancialProjectionsSlide() {
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>Financial Projections</span>
-              <span>16</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

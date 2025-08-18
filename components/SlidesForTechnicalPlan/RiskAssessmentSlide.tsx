@@ -17,6 +17,7 @@ import {
   Minus
 } from "lucide-react";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface RiskAssessmentSlideProps {
   slideNumber?: number;
@@ -26,6 +27,7 @@ export default function RiskAssessmentSlide({
   slideNumber 
 }: RiskAssessmentSlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Risk Assessment & Account Purpose");
 
   const inputCategories = [
     {

@@ -2,6 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 import { 
   Brain,
   BarChart3,
@@ -12,7 +14,13 @@ import {
   CheckCircle2
 } from "lucide-react";
 
-export default function ValuePropositionSlide() {
+interface ValuePropositionSlideProps {
+  slideNumber?: number;
+}
+
+export default function ValuePropositionSlide({ slideNumber }: ValuePropositionSlideProps) {
+  const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Value Proposition");
   const valuePropositions = [
     {
       id: 1,
@@ -129,7 +137,7 @@ export default function ValuePropositionSlide() {
                 
                 {/* Description */}
                 <p className={`text-xs leading-tight ${
-                  prop.style === 'white' ? 'text-gray-600' : 'text-white/80'
+                  prop.style === 'white' ? 'text-gray-600' : 'text-white'
                 }`}>{prop.description}</p>
               </motion.div>
             ))}
@@ -167,7 +175,7 @@ export default function ValuePropositionSlide() {
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>Value Proposition</span>
-              <span>06</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

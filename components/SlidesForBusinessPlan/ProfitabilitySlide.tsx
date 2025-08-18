@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -35,16 +37,22 @@ ChartJS.register(
 // Define the chart configuration keys type
 type ChartConfigKey = 'growth' | 'profitability' | 'services' | 'dashboard';
 
-export default function ProfitabilitySlide() {
-  const [activeChart, setActiveChart] = useState<ChartConfigKey>('growth');
+interface ProfitabilitySlideProps {
+  slideNumber?: number;
+}
 
-  // P&L data from reference
+export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlideProps) {
+  const [activeChart, setActiveChart] = useState<ChartConfigKey>('growth');
+  const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Revenue & Profitability Model");
+
+  // P&L data from Excel (in Millions BDT)
   const pnlData = {
     years: ['2026', '2027', '2028', '2029', '2030'],
-    revenue: [50, 150, 300, 550, 850],
-    costs: [80, 120, 180, 280, 400],
-    netProfit: [5, 45, 135, 295, 475],
-    grossProfit: [45, 135, 270, 495, 765],
+    revenue: [7.2, 15.6, 57.0, 126.0, 180.0],
+    costs: [45.2, 58.08, 72.49, 101.14, 148.43],
+    netProfit: [-60.07, -65.39, -41.04, -6.09, 16.03],
+    grossProfit: [-20.52, -18.57, 15.18, 77.11, 125.28],
     serviceCharges: {
       individual: 150,
       business: 500,
@@ -55,13 +63,13 @@ export default function ProfitabilitySlide() {
     }
   };
 
-  // Service revenue distribution (based on projected Year 5)
+  // Service revenue distribution (based on projected Year 5 - 180M total)
   const serviceRevenue = {
-    api: 340,           // 40% of 850M
-    individual: 212,    // 25% of 850M  
-    business: 170,      // 20% of 850M
-    monitoring: 85,     // 10% of 850M
-    bulk: 43           // 5% of 850M
+    api: 72,            // 40% of 180M
+    individual: 45,     // 25% of 180M  
+    business: 36,       // 20% of 180M
+    monitoring: 18,     // 10% of 180M
+    bulk: 9            // 5% of 180M
   };
 
   // Key metrics
@@ -69,22 +77,22 @@ export default function ProfitabilitySlide() {
     {
       icon: <TrendingUp className="w-5 h-5" />,
       title: "Revenue Growth",
-      value: "1,600%",
+      value: "2,400%",
       detail: "5-year total growth",
       style: "gradient"
     },
     {
       icon: <Target className="w-5 h-5" />,
       title: "Break-Even Point",
-      value: "Year 2",
-      detail: "Projected profitability",
+      value: "Year 5",
+      detail: "First profitable year",
       style: "white"
     },
     {
       icon: <DollarSign className="w-5 h-5" />,
-      title: "Net Margin",
-      value: "56%",
-      detail: "Year 5 profit margin",
+      title: "Y5 Net Profit",
+      value: "৳16M",
+      detail: "First positive year",
       style: "gradient"
     }
   ];
@@ -114,7 +122,7 @@ export default function ProfitabilitySlide() {
         plugins: {
           title: {
             display: true,
-            text: 'Revenue Growth: 50M to 850M BDT (1,600% Growth)',
+            text: 'Revenue Growth: 7.2M to 180M BDT (2,400% Growth)',
             font: { size: 12, weight: 'bold' as const },
             color: '#2c3e50',
             padding: { top: 5, bottom: 10 }
@@ -237,7 +245,7 @@ export default function ProfitabilitySlide() {
         ],
         datasets: [{
           label: 'Projected Year 5 Revenue (Millions BDT)',
-          data: [212, 170, 340, 85, 42, 43], // Revenue values
+          data: [45, 36, 72, 18, 9, 9], // Revenue values
           backgroundColor: [
             '#e74c3c',
             '#f39c12',
@@ -353,7 +361,7 @@ export default function ProfitabilitySlide() {
             callbacks: {
               label: function(context: any) {
                 const percentage = context.raw;
-                const revenue = Math.round((percentage / 100) * 850);
+                const revenue = Math.round((percentage / 100) * 180);
                 return `${context.label}: ${percentage}% (${revenue}M BDT)`;
               }
             }
@@ -561,7 +569,7 @@ export default function ProfitabilitySlide() {
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>Revenue & Profitability Model</span>
-              <span>18</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

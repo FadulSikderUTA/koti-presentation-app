@@ -1,15 +1,24 @@
 "use client";
 import { motion } from 'framer-motion';
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface MissionStatementSlideProps {
   version?: string;
   date?: string;
+  slideNumber?: number;
 }
 
 export default function MissionStatementSlide({ 
   version = "V1",
-  date = "08/11"
+  date = "08/11",
+  slideNumber
 }: MissionStatementSlideProps) {
+  const dynamicSlideNumber = useSlideNumber();
+  
+  // Register slide title dynamically
+  useSlideTitle("Mission Statement");
+  
   const missionText = "To empower individuals and businesses across Bangladesh with accessible, transparent, and data-driven credit insights, fostering financial inclusion and responsible lending through innovation and collaboration.";
 
   return (
@@ -61,7 +70,7 @@ export default function MissionStatementSlide({
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>Mission Statement</span>
-              <span>02</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

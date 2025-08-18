@@ -1,9 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 import { Mail, Phone, MapPin, Globe, Linkedin } from "lucide-react";
 
-export default function ContactSlide() {
+interface ContactSlideProps {
+  slideNumber?: number;
+}
+
+export default function ContactSlide({ slideNumber }: ContactSlideProps) {
+  const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Contact Information");
   return (
     <div className="presentation-slide presentation-gradient">
       <div className="pdf-container text-white relative">
@@ -73,7 +81,7 @@ export default function ContactSlide() {
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-left">
-                  <div className="text-sm font-medium text-white/80">Email</div>
+                  <div className="text-sm font-medium text-white text-white-contrast">Email</div>
                   <div className="text-lg font-semibold text-white">info@kotibd.com</div>
                 </div>
               </motion.div>
@@ -89,7 +97,7 @@ export default function ContactSlide() {
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-left">
-                  <div className="text-sm font-medium text-white/80">Phone</div>
+                  <div className="text-sm font-medium text-white text-white-contrast">Phone</div>
                   <div className="text-lg font-semibold text-white">+8801714046370</div>
                 </div>
               </motion.div>
@@ -105,7 +113,7 @@ export default function ContactSlide() {
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-left">
-                  <div className="text-sm font-medium text-white/80">Address</div>
+                  <div className="text-sm font-medium text-white text-white-contrast">Address</div>
                   <div className="text-lg font-semibold text-white">Dhaka, Bangladesh</div>
                 </div>
               </motion.div>
@@ -121,7 +129,7 @@ export default function ContactSlide() {
                   <Globe className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-left">
-                  <div className="text-sm font-medium text-white/80">Website</div>
+                  <div className="text-sm font-medium text-white text-white-contrast">Website</div>
                   <div className="text-lg font-semibold text-white">www.kotibd.com</div>
                 </div>
               </motion.div>
@@ -155,7 +163,7 @@ export default function ContactSlide() {
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>Contact Information</span>
-              <span>23</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

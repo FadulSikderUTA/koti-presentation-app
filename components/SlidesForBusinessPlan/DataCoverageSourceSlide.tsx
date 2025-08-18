@@ -2,10 +2,20 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 import Image from "next/image";
 import { getImagePath } from "@/lib/image-utils";
 
-export default function DataCoverageSourceSlide() {
+interface DataCoverageSourceSlideProps {
+  slideNumber?: number;
+}
+
+export default function DataCoverageSourceSlide({ slideNumber }: DataCoverageSourceSlideProps) {
+  const dynamicSlideNumber = useSlideNumber();
+  
+  // Register this slide's title for dynamic navigation
+  useSlideTitle("Data Coverage");
   return (
     <div className="presentation-slide presentation-gradient">
       <div className="pdf-container text-white relative">
@@ -69,20 +79,20 @@ export default function DataCoverageSourceSlide() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-2 bg-white/10 rounded-lg p-2 border border-white/20"
+            className="mt-2 bg-white/20 backdrop-blur-md rounded-lg p-3 border border-white/30 shadow-lg"
           >
             <div className="grid grid-cols-3 gap-4 text-center text-xs">
               <div>
-                <div className="font-bold text-blue-400">Multiple Credit Bureaus</div>
-                <div className="text-white/80">Distributed data registry & classification systems</div>
+                <div className="font-bold text-blue-contrast mb-1 header-with-background">Multiple Credit Bureaus</div>
+                <div className="text-white text-readable-background-sm">Distributed data registry & classification systems</div>
               </div>
               <div>
-                <div className="font-bold text-green-400">Consumer Integration</div>
-                <div className="text-white/80">Banks, Non-regulated institutions, Credit card issuers</div>
+                <div className="font-bold text-green-contrast mb-1 header-with-background">Consumer Integration</div>
+                <div className="text-white text-readable-background-sm">Banks, Non-regulated institutions, Credit card issuers</div>
               </div>
               <div>
-                <div className="font-bold text-purple-400">Comprehensive Services</div>
-                <div className="text-white/80">Credit scoring, Anti-fraud, Portfolio management</div>
+                <div className="font-bold text-purple-contrast mb-1 header-with-background">Comprehensive Services</div>
+                <div className="text-white text-readable-background-sm">Credit scoring, Anti-fraud, Portfolio management</div>
               </div>
             </div>
           </motion.div>
@@ -98,7 +108,7 @@ export default function DataCoverageSourceSlide() {
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>Data Coverage</span>
-              <span>15</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

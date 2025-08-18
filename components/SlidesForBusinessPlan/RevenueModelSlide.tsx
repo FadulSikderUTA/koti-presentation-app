@@ -2,6 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 import { 
   Building2, 
   Users, 
@@ -17,7 +19,13 @@ import {
   Target
 } from "lucide-react";
 
-export default function RevenueModelSlide() {
+interface RevenueModelSlideProps {
+  slideNumber?: number;
+}
+
+export default function RevenueModelSlide({ slideNumber }: RevenueModelSlideProps) {
+  const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Revenue Model");
   const revenueStreams = [
     {
       icon: <Building2 className="w-5 h-5 text-green-600" />,
@@ -152,7 +160,7 @@ export default function RevenueModelSlide() {
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>Revenue Model</span>
-              <span>07</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

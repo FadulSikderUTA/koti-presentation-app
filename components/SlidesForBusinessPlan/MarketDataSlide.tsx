@@ -1,16 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface MarketDataSlideProps {
   version?: string;
   date?: string;
+  slideNumber?: number;
 }
 
 export default function MarketDataSlide({ 
   version = "V1", 
-  date = "08/11" 
+  date = "08/11",
+  slideNumber
 }: MarketDataSlideProps) {
+  const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Market Data");
   return (
     <div className="presentation-slide presentation-gradient">
       <div className="pdf-container text-white relative">
@@ -184,7 +190,7 @@ export default function MarketDataSlide({
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>Market Data</span>
-              <span>08</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>

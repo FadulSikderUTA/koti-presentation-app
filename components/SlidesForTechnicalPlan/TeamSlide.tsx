@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { getImagePath } from "@/lib/image-utils";
 import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface TeamSlideProps {
   slideNumber?: number;
@@ -12,6 +13,7 @@ interface TeamSlideProps {
 
 export default function TeamSlide({ slideNumber }: TeamSlideProps) {
   const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("The Team");
   const teamMembers = [
     {
       id: 1,

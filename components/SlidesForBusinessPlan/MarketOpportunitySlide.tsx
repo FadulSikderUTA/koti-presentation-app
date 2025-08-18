@@ -1,14 +1,20 @@
 "use client";
 import { motion } from "framer-motion";
 import { TrendingUp, Users, DollarSign, ShieldCheck, BarChart3, ArrowRight } from "lucide-react";
+import { useSlideNumber } from '@/contexts/SlideNumberContext';
+import { useSlideTitle } from '@/hooks/useSlideTitle';
 
 interface MarketOpportunitySlideProps {
   companyName?: string;
+  slideNumber?: number;
 }
 
 export default function MarketOpportunitySlide({ 
-  companyName = "Koti" 
+  companyName = "Koti",
+  slideNumber
 }: MarketOpportunitySlideProps) {
+  const dynamicSlideNumber = useSlideNumber();
+  useSlideTitle("Market Opportunity");
   const keyStats = [
     { label: "Credit Invisible", value: "90%", icon: Users, color: "text-red-400" },
     { label: "Public Registry", value: "0.9%", icon: BarChart3, color: "text-red-400" },
@@ -230,7 +236,7 @@ export default function MarketOpportunitySlide({
           <div className="bg-white/10 backdrop-blur-sm border-t border-white/20 px-12 py-4">
             <div className="flex justify-between items-center text-sm text-white font-semibold">
               <span>Market Opportunity</span>
-              <span>09</span>
+              <span>{(slideNumber || dynamicSlideNumber).toString().padStart(2, '0')}</span>
             </div>
           </div>
         </motion.div>
