@@ -18,7 +18,7 @@ import {
   ArcElement,
 } from 'chart.js';
 import { Bar, Line, Doughnut } from 'react-chartjs-2';
-import { TrendingUp, DollarSign, Target, PieChart, BarChart3, LineChart, Receipt } from "lucide-react";
+import { TrendingUp, DollarSign, Target, PieChart, BarChart3, LineChart } from "lucide-react";
 
 // Register Chart.js components
 ChartJS.register(
@@ -35,7 +35,7 @@ ChartJS.register(
 );
 
 // Define the chart configuration keys type
-type ChartConfigKey = 'growth' | 'profitability' | 'services' | 'dashboard';
+type ChartConfigKey = 'growth' | 'profitability' | 'dashboard';
 
 interface ProfitabilitySlideProps {
   slideNumber?: number;
@@ -52,15 +52,7 @@ export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlidePr
     revenue: [0.72, 1.56, 5.70, 12.60, 18.00],
     costs: [4.52, 5.808, 7.249, 10.114, 14.843],
     netProfit: [-6.007, -6.539, -4.104, -0.609, 1.603],
-    grossProfit: [-2.052, -1.857, 1.518, 7.711, 12.528],
-    serviceCharges: {
-      individual: 150,
-      business: 500,
-      api: 25,
-      bulk: 50000,
-      monitoring: 300,
-      fraud: 100
-    }
+    grossProfit: [-2.052, -1.857, 1.518, 7.711, 12.528]
   };
 
   // Service revenue distribution (based on projected Year 5 - 18 Cr total)
@@ -232,95 +224,6 @@ export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlidePr
       }
     },
 
-    services: {
-      type: 'bar' as const,
-      data: {
-        labels: [
-          'Individual\nReports',
-          'Business\nReports', 
-          'API\nCalls',
-          'Credit\nMonitoring',
-          'Fraud\nDetection',
-          'Bulk Data\nAccess'
-        ],
-        datasets: [{
-          label: 'Projected Year 5 Revenue (Crores BDT)',
-          data: [4.5, 3.6, 7.2, 1.8, 0.9, 0.9], // Revenue values
-          backgroundColor: [
-            '#e74c3c',
-            '#f39c12',
-            '#3498db',
-            '#27ae60',
-            '#34495e',
-            '#9b59b6'
-          ],
-          borderColor: [
-            '#c0392b',
-            '#d68910',
-            '#2980b9',
-            '#229954',
-            '#2c3e50',
-            '#8e44ad'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          title: {
-            display: true,
-            text: 'Service Charges & Revenue Breakdown',
-            font: { size: 12, weight: 'bold' as const },
-            color: '#2c3e50',
-            padding: { top: 5, bottom: 10 }
-          },
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: function(context: any) {
-                const revenue = context.raw;
-                const prices = ['150 BDT', '500 BDT', '25 BDT', '300 BDT', '100 BDT', '50K BDT'];
-                const serviceName = context.label.replace('\n', ' ');
-                return [
-                  `${serviceName}: ৳${revenue} Cr revenue`,
-                  `Unit Price: ${prices[context.dataIndex]}`
-                ];
-              }
-            }
-          }
-        },
-        layout: {
-          padding: { top: 5, bottom: 5, left: 10, right: 10 }
-        },
-        scales: {
-          x: {
-            title: { display: true, text: 'Service Types (Revenue in Crores BDT)', color: '#2c3e50' },
-            ticks: { 
-              color: '#374151',
-              maxRotation: 0,
-              font: { size: 10 },
-              autoSkip: false,
-              maxTicksLimit: 6
-            },
-            grid: { color: 'rgba(0,0,0,0.1)' }
-          },
-          y: {
-            beginAtZero: true,
-            title: { display: true, text: 'Annual Revenue (Crores BDT)', color: '#2c3e50' },
-            ticks: {
-              color: '#374151',
-              callback: function(value: any) {
-                return '৳' + value + ' Cr';
-              }
-            },
-            grid: { color: 'rgba(0,0,0,0.1)' }
-          }
-        }
-      }
-    },
-
     dashboard: {
       type: 'bar' as const,
       data: {
@@ -400,7 +303,6 @@ export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlidePr
   const chartButtons: Array<{ key: ChartConfigKey; label: string; icon: React.ReactNode }> = [
     { key: 'growth', label: 'Revenue Growth', icon: <TrendingUp className="w-4 h-4" /> },
     { key: 'profitability', label: 'P&L Analysis', icon: <BarChart3 className="w-4 h-4" /> },
-    { key: 'services', label: 'Service Charges', icon: <Receipt className="w-4 h-4" /> },
     { key: 'dashboard', label: 'Revenue Dashboard', icon: <PieChart className="w-4 h-4" /> }
   ];
 
@@ -442,15 +344,15 @@ export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlidePr
 
           {/* Two Column Layout */}
           <div className="flex-1 flex gap-4">
-            {/* Left Column - Key Metrics & Service Charges */}
+            {/* Left Column - Key Metrics */}
             <motion.div 
-              className="w-1/3 flex flex-col gap-2"
+              className="w-1/3 flex flex-col gap-4 justify-center"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
             >
-              {/* Key Metrics - Upper Section */}
-              <div className="flex flex-col gap-2">
+              {/* Key Metrics */}
+              <div className="flex flex-col gap-4">
                 {keyMetrics.map((metric, index) => (
                   <motion.div
                     key={index}
@@ -458,56 +360,30 @@ export default function ProfitabilitySlide({ slideNumber }: ProfitabilitySlidePr
                       metric.style === 'white' 
                         ? 'bg-white border-2 border-white/30' 
                         : 'bg-gradient-to-br from-green-500 to-green-600'
-                    } rounded-xl p-3 shadow-lg flex items-center gap-3 h-16`}
+                    } rounded-xl p-5 shadow-lg flex items-center gap-4`}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3 + index * 0.1 }}
                   >
-                    <div className={`w-10 h-10 ${
+                    <div className={`w-14 h-14 ${
                       metric.style === 'white' ? 'bg-green-100 text-green-600' : 'bg-white/20 text-white'
                     } rounded-lg flex items-center justify-center flex-shrink-0`}>
                       {metric.icon}
                     </div>
                     <div className="flex-1">
-                      <h3 className={`text-xs font-bold ${
+                      <h3 className={`text-sm font-bold ${
                         metric.style === 'white' ? 'text-gray-800' : 'text-white'
                       }`}>{metric.title}</h3>
-                      <div className={`text-base font-bold ${
+                      <div className={`text-2xl font-bold ${
                         metric.style === 'white' ? 'text-green-600' : 'text-white'
                       }`}>{metric.value}</div>
-                      <p className={`text-xs ${
+                      <p className={`text-sm ${
                         metric.style === 'white' ? 'text-gray-600' : 'text-white/80'
                       }`}>{metric.detail}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
-
-              {/* Service Charges Table - Lower Section */}
-              <motion.div
-                className="bg-white/90 rounded-xl p-3 shadow-lg mt-1"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-              >
-                <h3 className="text-sm font-bold text-gray-800 mb-3 text-center bg-green-100 rounded-lg py-1">Service Charges</h3>
-                <div className="grid grid-cols-2 gap-x-3 gap-y-1">
-                  {[
-                    { name: 'Individual Report', desc: 'Personal credit', price: '150 BDT' },
-                    { name: 'Business Report', desc: 'Company assess', price: '500 BDT' },
-                    { name: 'API Call', desc: 'Per decision', price: '25 BDT' },
-                    { name: 'Bulk Access', desc: 'Monthly sub', price: '50K BDT' },
-                    { name: 'Credit Monitor', desc: 'Ongoing track', price: '300 BDT' },
-                    { name: 'Fraud Detection', desc: 'Real-time alert', price: '100 BDT' }
-                  ].map((service, index) => (
-                    <div key={index} className="bg-gray-50 rounded p-2 border border-gray-200">
-                      <div className="text-xs font-semibold text-gray-800 leading-tight">{service.name}</div>
-                      <div className="text-xs text-gray-600 leading-tight">{service.desc}</div>
-                      <div className="text-xs font-bold text-green-600 mt-1">{service.price}</div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
             </motion.div>
 
             {/* Right Column - Chart Area */}
