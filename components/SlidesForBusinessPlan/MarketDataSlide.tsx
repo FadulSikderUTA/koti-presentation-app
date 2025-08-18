@@ -157,10 +157,10 @@ export default function MarketDataSlide({
               className="absolute bottom-[18%] right-[10%]"
             >
               <div className="w-48 h-48 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex flex-col items-center justify-center shadow-2xl drop-shadow-xl hover:shadow-[0_20px_60px_rgba(168,85,247,0.4)] transition-shadow duration-300 cursor-pointer">
-                <div className="text-4xl font-bold text-white mb-1">245M</div>
+                <div className="text-4xl font-bold text-white mb-1">87M</div>
                 <div className="text-xs font-semibold text-white/95 text-center px-2 leading-tight">
-                  active mobile financial<br />
-                  service accounts
+                  active MFS<br />
+                  accounts
                 </div>
               </div>
             </motion.div>
