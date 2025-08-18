@@ -48,7 +48,7 @@ export default function Home() {
 
   return (
     <ProtectedRoute>
-      <div className="min-h-screen bg-gradient-to-br from-green-600 via-green-500 to-teal-500">
+      <div className="min-h-screen presentation-gradient">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KPHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2Utb3BhY2l0eT0iMC4xIj4KPHBhdGggZD0iTTAgMGg2MHY2MEgweiIvPgo8cGF0aCBkPSJNMzAgMzBoMzB2MzBIMzB6Ii8+CjwvZz4KPC9zdmc+')] opacity-10"></div>
         
