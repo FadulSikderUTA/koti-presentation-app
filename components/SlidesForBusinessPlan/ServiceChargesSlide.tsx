@@ -92,7 +92,7 @@ export default function ServiceChargesSlide({ slideNumber }: ServiceChargesSlide
               <div className="mb-2">
                 <h2 className="text-lg font-bold mb-1 flex items-center gap-2 header-with-background">
                   <Building2 className="w-5 h-5 text-blue-contrast" />
-                  <span className="text-blue-contrast">Banks (Annual)</span>
+                  <span className="text-blue-contrast">Banks</span>
                 </h2>
                 <p className="text-xs opacity-80">Incremental subscription model</p>
               </div>
@@ -149,7 +149,7 @@ export default function ServiceChargesSlide({ slideNumber }: ServiceChargesSlide
               <div className="mb-2">
                 <h2 className="text-lg font-bold mb-1 flex items-center gap-2 header-with-background">
                   <ShoppingBag className="w-5 h-5 text-purple-contrast" />
-                  <span className="text-purple-contrast">Other B2B (Annual)</span>
+                  <span className="text-purple-contrast">Other B2B</span>
                 </h2>
                 <p className="text-xs opacity-80">FMCG, MFI, E-Commerce, Tech</p>
               </div>
