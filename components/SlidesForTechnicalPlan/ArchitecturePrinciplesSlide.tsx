@@ -78,10 +78,10 @@ export default function ArchitecturePrinciplesSlide({
 
 
   const techSpecs = [
-    { icon: <Server className="w-4 h-4 text-white" />, label: "Dedicated Secure Link" },
-    { icon: <Database className="w-4 h-4 text-white" />, label: "Continuous Replication" },
-    { icon: <Wifi className="w-4 h-4 text-white" />, label: "TLS 1.2+ APIs" },
-    { icon: <Activity className="w-4 h-4 text-white" />, label: "RBAC & Audit Logging" }
+    { icon: <Server className="w-4 h-4 text-gray-600" />, label: "Dedicated Secure Link" },
+    { icon: <Database className="w-4 h-4 text-gray-600" />, label: "Continuous Replication" },
+    { icon: <Wifi className="w-4 h-4 text-gray-600" />, label: "TLS 1.2+ APIs" },
+    { icon: <Activity className="w-4 h-4 text-gray-600" />, label: "RBAC & Audit Logging" }
   ];
 
   return (
@@ -153,25 +153,25 @@ export default function ArchitecturePrinciplesSlide({
 
             {/* Right 30% - Bangladesh Hosting Visualization */}
             <motion.div 
-              className="w-[30%] bg-gradient-to-b from-green-500 to-green-600 rounded-xl p-2 text-white shadow-lg flex flex-col"
+              className="w-[30%] bg-white border-2 border-white/30 rounded-xl p-2 shadow-lg flex flex-col"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               {/* Bangladesh Map Header */}
               <div className="text-center mb-2">
-                <h4 className="text-sm font-bold mb-0.5">🇧🇩 Bangladesh Infrastructure</h4>
-                <div className="text-xs opacity-90">Data Sovereign Hosting</div>
+                <h4 className="text-sm font-bold text-gray-800 mb-0.5">🇧🇩 Bangladesh Infrastructure</h4>
+                <div className="text-xs text-gray-600">Data Sovereign Hosting</div>
               </div>
 
               {/* Simplified Bangladesh Map with DC/DR */}
-              <div className="bg-green-400/30 rounded-lg p-2 mb-2 h-20 relative">
-                <div className="absolute inset-2 border-2 border-white/50 border-dashed rounded relative">
+              <div className="bg-gray-50 rounded-lg p-2 mb-2 h-20 relative">
+                <div className="absolute inset-2 border-2 border-gray-300 border-dashed rounded relative">
                   {/* DC Active */}
                   <div className="absolute top-2 left-2">
                     <div className="bg-green-200 rounded-full w-3 h-3 relative">
                       <div className="absolute -bottom-5 -left-3 text-[8px] font-medium">
-                        <div className="bg-white text-green-800 px-1 py-0.5 rounded shadow">
+                        <div className="bg-gray-100 text-gray-800 px-1 py-0.5 rounded shadow">
                           DC (Active)
                         </div>
                       </div>
@@ -182,7 +182,7 @@ export default function ArchitecturePrinciplesSlide({
                   <div className="absolute bottom-2 right-2">
                     <div className="bg-yellow-300 rounded-full w-3 h-3 relative">
                       <div className="absolute -bottom-5 -right-3 text-[8px] font-medium">
-                        <div className="bg-white text-green-800 px-1 py-0.5 rounded shadow">
+                        <div className="bg-gray-100 text-gray-800 px-1 py-0.5 rounded shadow">
                           DR (Standby)
                         </div>
                       </div>
@@ -194,7 +194,7 @@ export default function ArchitecturePrinciplesSlide({
                     <line 
                       x1="15" y1="15" 
                       x2="85" y2="45" 
-                      stroke="white" 
+                      stroke="gray" 
                       strokeWidth="2" 
                       strokeDasharray="4,4"
                       opacity="0.8"
@@ -205,24 +205,24 @@ export default function ArchitecturePrinciplesSlide({
 
               {/* Technical Specifications */}
               <div className="space-y-2 flex-1">
-                <h5 className="font-semibold text-sm mb-2">Security Standards</h5>
+                <h5 className="font-semibold text-sm text-gray-800 mb-2">Security Standards</h5>
                 {techSpecs.map((spec, index) => (
                   <motion.div
                     key={index}
-                    className="flex items-center bg-white/10 rounded p-2"
+                    className="flex items-center bg-gray-50 rounded p-2"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
                   >
                     <div className="mr-2">{spec.icon}</div>
-                    <span className="text-xs font-medium">{spec.label}</span>
+                    <span className="text-xs font-medium text-gray-700">{spec.label}</span>
                   </motion.div>
                 ))}
               </div>
 
               {/* Source Citation - Ultra Compact */}
-              <div className="mt-1 pt-1 border-t border-white/20">
-                <div className="text-[8px] opacity-80">
+              <div className="mt-1 pt-1 border-t border-gray-200">
+                <div className="text-[8px] text-gray-600">
                   <div className="font-medium mb-0.5">Sources:</div>
                   <div>• Overview Infrastructure v1.2</div>
                   <div>• Technical Process Flow v1.1</div>
